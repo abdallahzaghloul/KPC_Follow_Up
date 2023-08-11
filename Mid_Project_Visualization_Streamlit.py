@@ -1,21 +1,14 @@
 from PIL import Image
 import streamlit as st
-import pandas as pd
-import numpy as np
 
-data=pd.read_csv("audi.csv")
-
-def Data_Columns_Uniting (data):
-    data.columns = data.columns.str.upper().str.strip()
-    data.columns = data.columns.str.replace(' ', '_')
-
-Data_Columns_Uniting(data)
+File="Client_EPIS_Daily_Progress.xlsx"
+data=pd.read_csv("File")
+im = Image.open("EPIS.png")
+image = np.array(im)
 
 st.markdown(" <center>  <h1> Used Car Dataset Analysis </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
-im = Image.open("audi-logo-2016.png")
-image = np.array(im)
 st.image(image)
 
 
