@@ -2,8 +2,8 @@ from PIL import Image
 import streamlit as st
 import pandas as pd
 import numpy as np
-
-data=pd.read_csv("audi.csv")
+Excel_Name="Client_EPIS_Daily_Progress.xlsx"
+data=pd.read_csv(Excel_Name)
 
 def Data_Columns_Uniting (data):
     data.columns = data.columns.str.upper().str.strip()
