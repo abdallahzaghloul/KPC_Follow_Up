@@ -20,10 +20,12 @@ df1['SPENT_DAYS']=df1.TODAY_DATE-df1.STARTING_DATE
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)
 df1.SPENT_DAYS=df1.SPENT_DAYS.str.replace(' days','')
 df1.JOB_DAYS=df1.JOB_DAYS.astype('int')
-df1.reset_index(inplace=True)
 df1["TEAM_NO."]  =  ["Team_"]+df1["TEAM_NO."].astype("str")+" ("+df1["AUDIT/DROPS"]+")"
+df1.reset_index(inplace=True)
+df1.set_index('TEAM_NO.')
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
+
 
 
 st.markdown(" <center>  <h1> ############33333 </h1> </font> </center> </h1> ",
