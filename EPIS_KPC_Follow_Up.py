@@ -70,7 +70,7 @@ Tog1 = st.selectbox("Desired Model Selection ",(' A1', ' A6', ' A4', ' A3' ,' Q3
 Y=st.slider('Select the year you are interested in',1997,2020)
 
 #O3=data[(data['MODEL']==Tog1) & (data['YEAR']==Y) ].mean(axis=0)['TAX']
- O3=4
+O3=4
 st.write(f'The Average Taxes for the model {Tog1} ',O3,'Euro')
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
