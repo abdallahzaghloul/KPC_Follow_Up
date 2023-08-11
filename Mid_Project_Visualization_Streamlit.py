@@ -1,20 +1,16 @@
 from PIL import Image
 import streamlit as st
 import pandas as pd
-import numpy as np
-Excel_Name="Client_EPIS_Daily_Progress.xlsx"
-df1=pd.read_csv(Excel_Name)
 import numpy as np #1
-import pandas as pd #2
 import plotly.graph_objects as go  #6
 import plotly.express as px  #7
 from plotly.subplots import make_subplots  #8
 import plotly.figure_factory as ff #21
 import datetime
 #from PIL import Image
-import requests
-url=("https://github.com/abdallahzaghloul/KPC_Follow_Up/blob/main/Client_EPIS_Daily_Progress.xlsx?raw=true")
-response =requests.get(url)
+
+Excel_Name="Client_EPIS_Daily_Progress.xlsx"
+df1=pd.read_csv(Excel_Name)
 df1 = pd.read_excel(url)
 pd.set_option('mode.chained_assignment',None)
 df1 = pd.read_excel(url,'Teams_Follow_Up')
