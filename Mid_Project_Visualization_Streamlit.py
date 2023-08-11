@@ -3,13 +3,35 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 Excel_Name="Client_EPIS_Daily_Progress.xlsx"
-data=pd.read_csv(Excel_Name)
-
-def Data_Columns_Uniting (data):
-    data.columns = data.columns.str.upper().str.strip()
-    data.columns = data.columns.str.replace(' ', '_')
-
-Data_Columns_Uniting(data)
+df1=pd.read_csv(Excel_Name)
+import numpy as np #1
+import pandas as pd #2
+import plotly.graph_objects as go  #6
+import plotly.express as px  #7
+from plotly.subplots import make_subplots  #8
+import plotly.figure_factory as ff #21
+import datetime
+#from PIL import Image
+import requests
+url=("https://github.com/abdallahzaghloul/KPC_Follow_Up/blob/main/Client_EPIS_Daily_Progress.xlsx?raw=true")
+response =requests.get(url)
+df1 = pd.read_excel(url)
+pd.set_option('mode.chained_assignment',None)
+df1 = pd.read_excel(url,'Teams_Follow_Up')
+df1.columns  = [i.replace(' ','_') for i in df1.columns]
+df1.columns  = [i.upper() for i in df1.columns]
+df1.dropna(axis=0, inplace=True)
+df1['TODAY_DATE']=datetime.date.today()
+df1["STARTING_DATE"]= pd.to_datetime(df1["STARTING_DATE"])
+df1["TODAY_DATE"]= pd.to_datetime(df1["TODAY_DATE"])
+df1['SPENT_DAYS']=df1.TODAY_DATE-df1.STARTING_DATE
+df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)
+df1.SPENT_DAYS=df1.SPENT_DAYS.str.replace(' days','')
+df1.JOB_DAYS=df1.JOB_DAYS.astype('int')
+df1.reset_index(inplace=True)
+df1["TEAM_NO."]  =  ["Team_"]+df1["TEAM_NO."].astype("str")+" ("+df1["AUDIT/DROPS"]+")"
+df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
+df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 
 st.markdown(" <center>  <h1> Used Car Dataset Analysis </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
