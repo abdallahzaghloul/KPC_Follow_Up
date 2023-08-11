@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np #1
 import pandas as pd #2
 import datetime
+import openpyxl
 File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
