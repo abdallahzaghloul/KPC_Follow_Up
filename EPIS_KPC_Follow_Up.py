@@ -28,7 +28,7 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 
 
 
-st.markdown(" <center>  <h1> ############33333 </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Active Rigs Follow Up </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 st.image(image)
