@@ -7,12 +7,13 @@ import plotly.express as px  #7
 from plotly.subplots import make_subplots  #8
 import plotly.figure_factory as ff #21
 import datetime
-#from PIL import Image
-import requests
-url=("https://github.com/abdallahzaghloul/KPC_Follow_Up/blob/main/Client_EPIS_Daily_Progress.xlsx?raw=true")
-response =requests.get(url)
-df1 = pd.read_excel(url)
-pd.set_option('mode.chained_assignment',None)
+File="Client_EPIS_Daily_Progress.xlsx"
+data=pd.read_csv("File")
+im = Image.open("EPIS.png")
+image = np.array(im)
+
+
+
 df1 = pd.read_excel(url,'Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
@@ -29,10 +30,6 @@ df1["TEAM_NO."]  =  ["Team_"]+df1["TEAM_NO."].astype("str")+" ("+df1["AUDIT/DROP
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 
-File="Client_EPIS_Daily_Progress.xlsx"
-data=pd.read_csv("File")
-im = Image.open("EPIS.png")
-image = np.array(im)
 
 st.markdown(" <center>  <h1> Used Car Dataset Analysis </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
