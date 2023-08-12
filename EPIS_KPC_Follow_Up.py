@@ -25,6 +25,8 @@ df1.reset_index(inplace=True)
 df1.set_index('TEAM_NO.')
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
+df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
+df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 
 
 
