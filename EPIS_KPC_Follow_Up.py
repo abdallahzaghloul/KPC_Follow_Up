@@ -8,7 +8,7 @@ im = Image.open("EPIS.png")
 image = np.array(im)
 
 
-
+######################## df1 #############################################################
 df1 = pd.read_excel(File,'Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
@@ -28,7 +28,10 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
 df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('RIG_NO.')
-
+######################## df2 #############################################################
+df2 = pd.read_excel(url,'Critical_Points_Follow_Up')
+df2.columns  = [i.replace(' ','_') for i in df2.columns]
+df2.columns  = [i.upper() for i in df2.columns]
 
 st.image(image)
 
@@ -59,9 +62,11 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 st.markdown(" <right> <h1> (III) Open Critical Items for Active Rigs </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
-L=('TAX','PRICE','MILEAGE')
+L=df2['RIG_NO.'].unique()
+L=tuple(L)
+
 RB1=st.radio("Select an Active Rig: ",L)
-#st.write(len(L))
+
 for i in range(0,len(L)):
             if RB1==L[i]:
                         O1=i
