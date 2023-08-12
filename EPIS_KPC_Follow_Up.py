@@ -58,7 +58,7 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 #st.markdown(" <right> <h1> (II) The Car of the highest selected feature</h1> </font> </right> </h1> ",
-            unsafe_allow_html=True)
+#            unsafe_allow_html=True)
 
 #RB1=st.radio("Select one of The Desired Feature: ",('TAX','PRICE','MILEAGE'))
 #if RB1=='TAX':
