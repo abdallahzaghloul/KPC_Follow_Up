@@ -61,6 +61,7 @@ st.markdown(" <right> <h1> (III) Open Critical Items for Active Rigs </h1> </fon
             unsafe_allow_html=True)
 L=('TAX','PRICE','MILEAGE')
 RB1=st.radio("Select an Active Rig: ",L)
+st.write(len(L))
 for i in range(0,len(L)):
             if RB1==L[i]:
                         O1=i
