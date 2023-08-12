@@ -57,28 +57,28 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
-st.markdown(" <right> <h1> (II) The Car of the highest selected feature</h1> </font> </right> </h1> ",
+#st.markdown(" <right> <h1> (II) The Car of the highest selected feature</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 
-RB1=st.radio("Select one of The Desired Feature: ",('TAX','PRICE','MILEAGE'))
-if RB1=='TAX':
-    O1=5
-    st.write(O1)
+#RB1=st.radio("Select one of The Desired Feature: ",('TAX','PRICE','MILEAGE'))
+#if RB1=='TAX':
+#    O1=5
+#    st.write(O1)
 
 
 
-st.markdown(" <center>  <h1> B) Data Average Values </h1> </font> </center> </h1> ",
-            unsafe_allow_html=True)
+#st.markdown(" <center>  <h1> B) Data Average Values </h1> </font> </center> </h1> ",
+#            unsafe_allow_html=True)
 
 
 
-Tog1 = st.selectbox("Desired Model Selection ",(' A1', ' A6', ' A4', ' A3' ,' Q3', ' Q5', ' A5' ,' S4', ' Q2', ' A7', ' TT', ' Q7',' RS6' ,' RS3', ' A8' ,' Q8' ,' RS4', ' RS5' ,' R8', ' SQ5', ' S8', ' SQ7', ' S3',' S5' ,' A2', ' RS7'))
+#Tog1 = st.selectbox("Desired Model Selection ",(' A1', ' A6', ' A4', ' A3' ,' Q3', ' Q5', ' A5' ,' S4', ' Q2', ' A7', ' TT', ' Q7',' RS6' ,' RS3', ' A8' ,' Q8' ,' RS4', ' RS5' ,' R8', ' SQ5', ' S8', ' SQ7', ' S3',' S5' ,' A2', ' RS7'))
 
-Y=st.slider('Select the year you are interested in',1997,2020)
+#Y=st.slider('Select the year you are interested in',1997,2020)
 
 #O3=data[(data['MODEL']==Tog1) & (data['YEAR']==Y) ].mean(axis=0)['TAX']
-O3=4
-st.write(f'The Average Taxes for the model {Tog1} ',O3,'Euro')
+#O3=4
+#st.write(f'The Average Taxes for the model {Tog1} ',O3,'Euro')
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
 
