@@ -44,7 +44,7 @@ Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
 st.write(Audit)
-
+st.dataframe(Audit.style.highlight_max(axis=0))
 
 st.markdown(" <right> <h1> (II) The Car of the highest selected feature</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
