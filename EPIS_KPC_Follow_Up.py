@@ -42,7 +42,7 @@ st.markdown(" <right>  <h1> (I) Inspection/Audit Teams</h1> </font> </right> </h
             unsafe_allow_html=True)
 Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
-Audit.transpose()
+Audit=Audit.transpose()
 st.write(Audit)
 
 
