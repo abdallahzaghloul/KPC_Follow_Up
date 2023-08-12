@@ -34,7 +34,7 @@ st.markdown(" <center>  <h1> Rigs/Teams Follow Up </h1> </font> </center> </h1> 
             unsafe_allow_html=True)
 
 
-st.markdown(" <center>  <h1> Active Rigs Current Jobs </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Daily Active Rigs Current Report </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 
