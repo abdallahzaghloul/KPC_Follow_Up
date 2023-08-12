@@ -30,22 +30,18 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 
 st.image(image)
 
-st.markdown(" <center>  <h1> Rigs/Teams Follow Up </h1> </font> </center> </h1> ",
+
+st.markdown(" <center>  <h1> Daily Jobs on Active Rigs </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 
-st.markdown(" <center>  <h1> Daily Active Rigs Current Report </h1> </font> </center> </h1> ",
+
+st.markdown(" <right>  <h1> (I) Inspection/Audit Teams</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
-
-
-
-st.markdown(" <right>  <h1> (I) The Car of the lowest selected feature</h1> </font> </right> </h1> ",
-            unsafe_allow_html=True)
-
-RB2=st.radio("Select The Desired Feature: ",('TAX','PRICE','MILEAGE'))
-if RB2=='TAX':
-    O2=5
-    st.write(O2)
+Audit=df1[df1['AUDIT/DROPS']=="Audit"]
+Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
+Audit.transpose()
+st.write(Audit)
 
 
 st.markdown(" <right> <h1> (II) The Car of the highest selected feature</h1> </font> </right> </h1> ",
