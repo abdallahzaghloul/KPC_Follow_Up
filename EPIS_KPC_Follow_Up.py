@@ -38,13 +38,22 @@ st.markdown(" <center>  <h1> Daily Jobs on Active Rigs </h1> </font> </center> <
 
 
 
-st.markdown(" <right>  <h1> (I) Inspection/Audit Teams</h1> </font> </right> </h1> ",
+st.markdown(" <right>  <h1> (I) Inspection/Audit Follow Up</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
 #st.write(Audit)
 st.dataframe(Audit.style.highlight_max(axis=0))
+
+
+st.markdown(" <right>  <h1> (I) Drops Survey Follow Up</h1> </font> </right> </h1> ",
+            unsafe_allow_html=True)
+Drops=df1[df1['AUDIT/DROPS']=="Drops"]
+Drops.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
+Drops=Drops.transpose()
+#st.write(Drops)
+st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
