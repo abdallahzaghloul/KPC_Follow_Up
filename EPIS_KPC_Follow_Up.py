@@ -59,8 +59,9 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 st.markdown(" <right> <h1> (III) Open Critical Items for Active Rigs </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
+L=('TAX','PRICE','MILEAGE')
+RB1=st.radio("Select an Active Rig: ",L)
 
-#RB1=st.radio("Select an Active Rig: ",('TAX','PRICE','MILEAGE'))
 #if RB1=='TAX':
 #    O1=5
 #    st.write(O1)
