@@ -42,7 +42,7 @@ df2.dropna(axis=0, inplace=True)
 df2['POINT']=df2['POINT'].astype('str')
 df2['POINT']=df2['POINT'].str.split('.').str[0]
 df2['ZONE']= "Zone"+"_"+df2['POINT'].astype(str)
-
+df2['FINAL_STATUS']=df2['FINAL_STATUS'].str.upper()
 st.image(image)
 
 
@@ -92,7 +92,7 @@ if PB1==1:
             Critical = df2[df2['RIG_NO.']==Rigs[i]]
             Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
             Critical=Critical.set_index('ZONE')
-            Critical_Open=Critical[Critical['FINAL_STATUS']=="open"]
+            Critical_Open=Critical[Critical['FINAL_STATUS']=="OPEN"]
             T1=st.dataframe(Critical_Open,use_container_width=True)
                                     
 
