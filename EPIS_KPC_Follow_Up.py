@@ -68,7 +68,7 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
-st.markdown(" <center> <h1> (III) Open Critical Items for Active Rigs </h1> </font> </center> </h1> ",
+st.markdown(" <center> <h1> Open Critical Items for Active Rigs </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 L=df2['RIG_NO.'].unique()
 L=tuple(L)
