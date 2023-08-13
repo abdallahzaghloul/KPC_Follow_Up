@@ -32,6 +32,7 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
 df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('RIG_NO.')
+df1['CLOSURE_%']=df1['CLOSURE_%'].astype(str)
 ######################## df2 #############################################################
 df2 = pd.read_excel(File,'Critical_Points_Follow_Up')
 df2.columns  = [i.replace(' ','_') for i in df2.columns]
