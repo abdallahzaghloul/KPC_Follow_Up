@@ -92,7 +92,7 @@ if PB1==1:
             Critical = df2[df2['RIG_NO.']==Rigs[i]]
             Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
             Critical=Critical.set_index('ZONE')
-            Critical_Open=Critical[Critical['FINAL_STATUS']=="Open"]
+            Critical_Open=Critical[Critical['FINAL_STATUS']=="open"]
             T1=st.dataframe(Critical_Open,use_container_width=True)
                                     
 
