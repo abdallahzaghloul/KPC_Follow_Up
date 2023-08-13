@@ -70,24 +70,26 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
-st.markdown(" <center> <h1> Open Critical Items for Active Rigs </h1> </font> </center> </h1> ",
+st.markdown(" <center> <h1> Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-L=df2['RIG_NO.'].unique()
-L=tuple(L)
+Rigs=df2['RIG_NO.'].unique()
+Rigs=tuple(Rigs)
 
-RB1=st.radio("Select an Active Rig: ",L)
+
+RB1=st.radio("Select an Active Rig: ",Rigs)
 
 
 for i in range(0,len(L)):
             if RB1==L[i]:
-                        Critical = df2[df2['RIG_NO.']==L[i]]
+                        st.write(f'Critical Points of Rig {Rigs[i]} at {})
+                        Critical = df2[df2['RIG_NO.']==Rigs[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)
 PB1=st.button("Open")
 if PB1==1:
-            st.write(f"The Open Points only of {L[i]}")
-            Critical = df2[df2['RIG_NO.']==L[i]]
+            st.write(f"The Open Points only of {Rigs[i]}")
+            Critical = df2[df2['RIG_NO.']==Rigs[i]]
             Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
             Critical=Critical.set_index('ZONE')
             Critical_Open=Critical[Critical['FINAL_STATUS']=="Open"]
