@@ -84,7 +84,7 @@ for i in range(0,len(L)):
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)
-if PB1=1:
+if PB1==1:
             RB1=st.radio(disabled=True)
             Critical = df2[df2['RIG_NO.']==L[i]]
             Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
