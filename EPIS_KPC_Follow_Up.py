@@ -54,7 +54,7 @@ st.markdown(" <right>  <h1> (I) Inspection/Audit Follow Up</h1> </font> </right>
 Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
-st.dataframe(Audit.style.highlight_max(axis=0))
+st.dataframe(Audit)
 
 
 st.markdown(" <right>  <h1> (II) Drops Survey Follow Up</h1> </font> </right> </h1> ",
