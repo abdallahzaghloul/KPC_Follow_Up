@@ -81,7 +81,7 @@ RB1=st.radio("Select an Active Rig: ",Rigs)
 
 for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
-                        st.write(f"Critical Points of Rig {Rigs[i]} at{df1[df1['RIG_NO.']==Rigs[i]] ['AUDIT/DROPS'][0]} ")
+                        st.write(f"Critical Points of Rig {Rigs[i]} at  {df1[df1['RIG_NO.']==Rigs[i]] ['JOB_TYPE'][0]} ")
                         Critical = df2[df2['RIG_NO.']==Rigs[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
