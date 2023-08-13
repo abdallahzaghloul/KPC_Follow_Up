@@ -76,7 +76,7 @@ L=df2['RIG_NO.'].unique()
 L=tuple(L)
 
 RB1=st.radio("Select an Active Rig: ",L)
-st.button("Open"):
+st.button("Open")
 
 for i in range(0,len(L)):
             if RB1==L[i]:
