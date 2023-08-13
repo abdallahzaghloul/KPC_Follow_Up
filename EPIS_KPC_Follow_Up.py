@@ -33,9 +33,12 @@ df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
 df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('RIG_NO.')
 ######################## df2 #############################################################
-df2 = pd.read_excel(File,'Critical_Points_Follow_Up')
+df2 = pd.read_excel(url,'Critical_Points_Follow_Up')
 df2.columns  = [i.replace(' ','_') for i in df2.columns]
 df2.columns  = [i.upper() for i in df2.columns]
+df2.dropna(axis=0, inplace=True)
+df2['POINT']=df2['POINT'].astype('int')
+df2['ZONE']= "Zone"+"_"+df2['POINT'].astype(str)
 
 st.image(image)
 
@@ -73,8 +76,11 @@ RB1=st.radio("Select an Active Rig: ",L)
 
 for i in range(0,len(L)):
             if RB1==L[i]:
-                        O1=i
-                        st.write(O1)
+                        Critical = df2[df2['RIG_NO.']==L[i]]
+                        Critical.transpose()
+                        Critical.drop(['RIG_NO.','POINT'],axis=1,inplace=True)
+                        Critical=Critical.set_index('ZONE')
+                        st.dataframe(Critical.style.highlight_max(axis=0))
 
 
 
