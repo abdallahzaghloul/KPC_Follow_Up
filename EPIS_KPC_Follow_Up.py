@@ -31,7 +31,7 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
 df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
-df1=df1.set_index('RIG_NO.')
+df1=df1.set_index('TEAM_NO.')
 df1['CLOSURE_%']=df1['CLOSURE_%'].astype(str)
 ######################## df2 #############################################################
 df2 = pd.read_excel(File,'Critical_Points_Follow_Up')
@@ -55,7 +55,7 @@ st.markdown(" <right>  <h1> (I) Inspection/Audit Follow Up</h1> </font> </right>
 Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
-Audit=Audit.set_index('TEAM_NO.')
+
 st.dataframe(Audit)
 
 
