@@ -78,7 +78,7 @@ RB1=st.radio("Select an Active Rig: ",L)
 for i in range(0,len(L)):
             if RB1==L[i]:
                         Critical = df2[df2['RIG_NO.']==L[i]]
-                        Critical.drop(['POINT','FINAL_STATUS'],axis=1,inplace=True)
+                        Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         st.dataframe(Critical)
 
