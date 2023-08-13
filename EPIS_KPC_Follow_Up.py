@@ -84,7 +84,7 @@ for i in range(0,len(L)):
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)
-            elif RB1==L[i] and st.button("Open"):
+            elif st.button("Open"):
                         Critical = df2[df2['RIG_NO.']==L[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
