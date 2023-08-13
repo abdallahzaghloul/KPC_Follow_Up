@@ -76,7 +76,7 @@ L=df2['RIG_NO.'].unique()
 L=tuple(L)
 
 RB1=st.radio("Select an Active Rig: ",L)
-st.button("Open")
+PB1=st.button("Open")
 
 for i in range(0,len(L)):
             if RB1==L[i]:
@@ -84,7 +84,7 @@ for i in range(0,len(L)):
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)
-if st.button("Open"):
+if PB1=1:
             RB1=st.radio(disabled=True)
             Critical = df2[df2['RIG_NO.']==L[i]]
             Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
