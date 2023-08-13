@@ -82,7 +82,7 @@ for i in range(0,len(L)):
                         Critical = df2[df2['RIG_NO.']==L[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
-                        st.dataframe(Critical)
+                        st.dataframe(Critical,use_container_width=True)
 
 
 
