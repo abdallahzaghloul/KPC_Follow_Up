@@ -40,7 +40,7 @@ df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
 df3['FINAL_STATUS']=df3['FINAL_\nSTATUS'].str.upper()
 df3=df3.drop('FINAL_\nSTATUS',axis=1, inplace=True)
-
+Rigs=df3['RIG_NO.'].unique()
 st.image(image)
 
 
@@ -74,8 +74,8 @@ st.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
 st.markdown(" <center> <h1> Open Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-Rigs=df3['RIG_NO.'].unique()
-Rigs=tuple(Rigs)
+#Rigs=df3['RIG_NO.'].unique()
+#Rigs=tuple(Rigs)
 
 
 RB1=st.radio("Select an Active Rig: ",Rigs)
