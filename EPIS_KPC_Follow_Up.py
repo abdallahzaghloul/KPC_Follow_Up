@@ -33,15 +33,15 @@ df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('TEAM_NO.')
 df1['CLOSURE_%']=df1['CLOSURE_%'].astype(str)
 df1['CLOSURE_%']=df1['CLOSURE_%']+"%"
-######################## df2 #############################################################
-df2 = pd.read_excel(File,'Critical_Points_Follow_Up')
-df2.columns  = [i.replace(' ','_') for i in df2.columns]
-df2.columns  = [i.upper() for i in df2.columns]
-df2.dropna(axis=0, inplace=True)
-df2['POINT']=df2['POINT'].astype('str')
-df2['POINT']=df2['POINT'].str.split('.').str[0]
-df2['ZONE']= "Zone"+"_"+df2['POINT'].astype(str)
-df2['FINAL_STATUS']=df2['FINAL_STATUS'].str.upper()
+######################## df3 #############################################################
+df3 = pd.read_excel(File,'Critical_Points_Follow_Up')
+df3.columns  = [i.replace(' ','_') for i in df3.columns]
+df3.columns  = [i.upper() for i in df3.columns]
+df3.dropna(axis=0, inplace=True)
+df3['POINT']=df3['POINT'].astype('str')
+df3['POINT']=df3['POINT'].str.split('.').str[0]
+df3['ZONE']= "Zone"+"_"+df3['POINT'].astype(str)
+df3['FINAL_STATUS']=df3['FINAL_STATUS'].str.upper()
 st.image(image)
 
 
@@ -62,17 +62,17 @@ st.dataframe(Audit)
 
 st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
-Drops=df1[df1['AUDIT/DROPS']=="Drops"]
-Drops.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
-Drops=Drops.transpose()
-#st.write(Drops)
-st.dataframe(Drops.style.highlight_max(axis=0))
+#Drops=df2
+#Drops.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
+#Drops=Drops.transpose()
+St.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+#st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
 st.markdown(" <center> <h1> Open Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-Rigs=df2['RIG_NO.'].unique()
+Rigs=df3['RIG_NO.'].unique()
 Rigs=tuple(Rigs)
 
 
@@ -82,7 +82,7 @@ RB1=st.radio("Select an Active Rig: ",Rigs)
 for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
                         st.write(f"Critical Points of Rig {Rigs[i]} at  {df1[df1['RIG_NO.']==Rigs[i]] ['JOB_TYPE'][0]} ")
-                        Critical = df2[df2['RIG_NO.']==Rigs[i]]
+                        Critical = df3[df3['RIG_NO.']==Rigs[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)                                    
