@@ -51,7 +51,7 @@ st.markdown(" <center>  <h1> Daily Jobs on Active Rigs </h1> </font> </center> <
 
 
 
-st.markdown(" <right>  <h1> (I) Inspection/Audit Follow Up</h1> </font> </right> </h1> ",
+st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 Audit=df1[df1['AUDIT/DROPS']=="Audit"]
 Audit.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
@@ -60,7 +60,7 @@ Audit=Audit.transpose()
 st.dataframe(Audit)
 
 
-st.markdown(" <right>  <h1> (II) Drops Survey Follow Up</h1> </font> </right> </h1> ",
+st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 Drops=df1[df1['AUDIT/DROPS']=="Drops"]
 Drops.drop(['TODAY_DATE','JOB_DAYS','AUDIT/DROPS','index'], axis=1, inplace=True)
@@ -70,7 +70,7 @@ st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
-st.markdown(" <center> <h1> Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
+st.markdown(" <center> <h1> Open Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 Rigs=df2['RIG_NO.'].unique()
 Rigs=tuple(Rigs)
