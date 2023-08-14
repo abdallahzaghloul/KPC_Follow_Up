@@ -38,10 +38,9 @@ df3 = pd.read_excel(File,'Critical_Points_Follow_Up')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
 df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
-df3['NO.']=df3['NO.'].astype('str')
-df3['NO.']=df3['NO.'].str.split('.').str[0]
-df3['ZONE']= "Zone"+"_"+df3['NO.'].astype(str)
-df3['FINAL_STATUS']=df3['FINAL_STATUS'].str.upper()
+df3['FINAL_STATUS']=df3['FINAL_\nSTATUS'].str.upper()
+df3=df3.drop('FINAL_\nSTATUS',axis=1, inplace=True)
+
 st.image(image)
 
 
