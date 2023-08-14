@@ -24,7 +24,6 @@ df1['SPENT_DAYS']=df1.TODAY_DATE-df1.STARTING_DATE
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)
 df1.SPENT_DAYS=df1.SPENT_DAYS.str.replace(' days','')
 df1.JOB_DAYS=df1.JOB_DAYS.astype('int')
-df1["TEAM_NO."]  =  ["Team_"]+df1["TEAM_NO."].astype("str")+" ("+df1["AUDIT/DROPS"]+")"
 df1.reset_index(inplace=True)
 df1.set_index('TEAM_NO.')
 df1.SPENT_DAYS=df1.SPENT_DAYS.astype('int')+1
@@ -85,16 +84,7 @@ for i in range(0,len(Rigs)):
                         Critical = df2[df2['RIG_NO.']==Rigs[i]]
                         Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
-                        T1=st.dataframe(Critical,use_container_width=True)
-PB1=st.button("Open")
-if PB1==1:
-            st.write(f"The Open Points only of {Rigs[i]}")
-            Critical = df2[df2['RIG_NO.']==Rigs[i]]
-            Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
-            Critical=Critical.set_index('ZONE')
-            Critical_Open=Critical[Critical['FINAL_STATUS']=="OPEN"]
-            T1=st.dataframe(Critical_Open,use_container_width=True)
-                                    
+                        T1=st.dataframe(Critical,use_container_width=True)                                    
 
 
 
