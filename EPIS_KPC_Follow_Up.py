@@ -34,7 +34,7 @@ df1=df1.set_index('TEAM_NO.')
 df1['CLOSURE_%']=df1['CLOSURE_%'].astype(str)
 df1['CLOSURE_%']=df1['CLOSURE_%']+"%"
 ######################## df2 #############################################################
-df2 = pd.read_excel(File,'Drops_Teams_Follow_Up')
+df2 = pd.read_excel(File,'Critical_Points_Follow_Up')
 df2.columns  = [i.replace(' ','_') for i in df2.columns]
 df2.columns  = [i.upper() for i in df2.columns]
 df2.dropna(axis=0, inplace=True)
