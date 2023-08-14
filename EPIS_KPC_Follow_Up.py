@@ -46,7 +46,7 @@ df2['FINAL_STATUS']=df2['FINAL_STATUS'].str.upper()
 st.image(image)
 
 
-st.markdown(" <center>  <h1> Daily Jobs on Active Rigs </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Daily Follow Up </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 
