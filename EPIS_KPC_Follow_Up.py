@@ -38,8 +38,8 @@ df3 = pd.read_excel(File,'Critical_Points_Follow_Up')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
 df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
-df3['POINT']=df3['POINT'].astype('str')
-df3['POINT']=df3['POINT'].str.split('.').str[0]
+df3['No.']=df3['No.'].astype('str')
+df3['No.']=df3['No.'].str.split('.').str[0]
 df3['ZONE']= "Zone"+"_"+df3['POINT'].astype(str)
 df3['FINAL_STATUS']=df3['FINAL_STATUS'].str.upper()
 st.image(image)
@@ -86,7 +86,7 @@ for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
                         st.write(f"Critical Points of Rig {Rigs[i]} at  {df1[df1['RIG_NO.']==Rigs[i]] ['JOB_TYPE'][0]} ")
                         Critical = df3[df3['RIG_NO.']==Rigs[i]]
-                        Critical.drop(['POINT','RIG_NO.'],axis=1,inplace=True)
+                        Critical.drop(['NO.','RIG_NO.','LOCATION','REF.'],axis=1,inplace=True)
                         Critical=Critical.set_index('ZONE')
                         T1=st.dataframe(Critical,use_container_width=True)                                    
 
