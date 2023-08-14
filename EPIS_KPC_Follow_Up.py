@@ -34,7 +34,7 @@ df1=df1.set_index('TEAM_NO.')
 df1['CLOSURE_%']=df1['CLOSURE_%'].astype(str)
 df1['CLOSURE_%']=df1['CLOSURE_%']+"%"
 ######################## df3 #############################################################
-df3 = pd.read_excel(File,'Critical_Points_Follow_Up')
+df3 = pd.read_excel(File,'Active_Critical_Points')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
 df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
@@ -73,7 +73,7 @@ st.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
 
 
-st.markdown(" <center> <h1> Open Critical Items for Active Rigs (Current Audit Phase) </h1> </font> </center> </h1> ",
+st.markdown(" <center> <h1> Open Critical Items for Active Rigs </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 
