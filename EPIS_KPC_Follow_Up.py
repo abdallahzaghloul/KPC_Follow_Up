@@ -62,10 +62,13 @@ st.dataframe(Audit)
 
 st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
+
+
+
 #Drops=df2
 #Drops.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
 #Drops=Drops.transpose()
-St.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+st.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 #st.dataframe(Drops.style.highlight_max(axis=0))
 
 
