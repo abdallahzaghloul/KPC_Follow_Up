@@ -36,8 +36,8 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 
 
 
-st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
-            unsafe_allow_html=True)
+#st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
+#            unsafe_allow_html=True)
 
 DRLG_Phases=df5['PHASES'].unique()
 DRLG_Phases=list(DRLG_Phases)
