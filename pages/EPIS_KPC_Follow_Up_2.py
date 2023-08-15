@@ -103,7 +103,7 @@ for i in range (0,len(PU_Rigs)):
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)    
-            if (RB3==PU_Rigs[i]) and (Phases_Sliderr!="All"):
+            if (RB3==PU_Rigs[i]) and (Phases_Sliderrr!="All"):
                         st.write(f"Critical Points of Rig {PU_Rigs[i]} ")
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])&(df4['PHASE']==Phases_Sliderrr)]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
