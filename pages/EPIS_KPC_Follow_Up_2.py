@@ -42,12 +42,10 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
 
-#DRLG_Phases=df4[df4['RIG_TYPE']=="DRLG"]['PHASE'].unique()
-#All_Rigs=tuple(All_Rigs)
-#Phases_Slider = st.select_slider(
-#    'Select a color of the rainbow',
-#    options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
-#st.write('My favorite color is', color)
+DRLG_Phases=df4[df4['RIG_TYPE']=="DRLG"]['PHASE'].unique()
+DRLG_Phases=list(DRLG_Phases)
+Phases_Slider = st.select_slider('Select Phase', options=DRLG_Phases)
+
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
 
