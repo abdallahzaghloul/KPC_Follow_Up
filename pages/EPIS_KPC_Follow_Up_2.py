@@ -69,7 +69,7 @@ WO_Phases=df5['PHASES'].unique()
 WO_Phases=list(WO_Phases)
 
 RB2=st.radio("Select an Active Rig: ",WO_Rigs)
-Phases_Sliderr = st.select_slider('Select Phase', options=WO_Phases)
+Phases_Sliderr = st.select_slider('Select Phase  ', options=WO_Phases)
 
 for i in range (0,len(WO_Rigs)):
             if (RB2==WO_Rigs[i]) and (Phases_Sliderr=="All"):
