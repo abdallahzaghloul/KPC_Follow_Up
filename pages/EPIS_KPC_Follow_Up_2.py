@@ -43,7 +43,7 @@ DRLG_Phases=df5['PHASES'].unique()
 DRLG_Phases=list(DRLG_Phases)
 
 RB1=st.radio("Select an Active Rig: ",DRLG_Rigs)
-Phases_Slider = st.select_slider('Select Phase', options=DRLG_Phases)
+Phases_Slider = st.select_slider('Select DRLG Phase', options=DRLG_Phases)
 
 for i in range (0,len(DRLG_Rigs)):
             if (RB1==DRLG_Rigs[i]) and (Phases_Slider=="All"):
@@ -69,7 +69,7 @@ WO_Phases=df5['PHASES'].unique()
 WO_Phases=list(WO_Phases)
 
 RB2=st.radio("Select an Active Rig: ",WO_Rigs)
-Phases_Sliderr = st.select_slider('Select Phase  ', options=WO_Phases)
+Phases_Sliderr = st.select_slider('Select Phase WO', options=WO_Phases)
 
 for i in range (0,len(WO_Rigs)):
             if (RB2==WO_Rigs[i]) and (Phases_Sliderr=="All"):
