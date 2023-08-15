@@ -19,8 +19,8 @@ df4.columns  = [i.upper() for i in df4.columns]
 df4.dropna(axis=0, inplace=True)
 df4.set_index('NO.', inplace=True)
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
-Rigs=df4['RIG_NO.'].unique()
-Rigs=tuple(Rigs)
+All_Rigs=df4['RIG_NO.'].unique()
+All_Rigs=tuple(All_Rigs)
 st.image(image)
 
 
@@ -31,15 +31,8 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 
 st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
-Audit=df1
 
-Audit.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
-Audit=Audit.transpose()
-
-st.dataframe(Audit)
-
-
-RB1=st.radio("Select an Active Rig: ",Rigs)
+RB1=st.radio("Select an Active Rig: ",All_Rigs)
 
 #Team=df4
 #Team.reset_index(inplace=True)
