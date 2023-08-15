@@ -42,7 +42,7 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 DRLG_Phases=df5['PHASES'].unique()
 DRLG_Phases=list(DRLG_Phases)
 
-RB1=st.radio("Select an Active Rig: ",DRLG_Rigs)
+RB1=st.radio("Select DRLG Rig: ",DRLG_Rigs)
 Phases_Slider = st.select_slider('Select DRLG Phase', options=DRLG_Phases)
 
 for i in range (0,len(DRLG_Rigs)):
@@ -67,7 +67,7 @@ WO_Rigs=tuple(WO_Rigs)
 WO_Phases=df5['PHASES'].unique()
 WO_Phases=list(WO_Phases)
 
-RB2=st.radio("Select an Active Rig: ",WO_Rigs)
+RB2=st.radio("SelectWO Rig: ",WO_Rigs)
 Phases_Sliderr = st.select_slider('Select Phase WO', options=WO_Phases)
 
 for i in range (0,len(WO_Rigs)):
@@ -94,7 +94,7 @@ PU_Rigs=tuple(PU_Rigs)
 PU_Phases=df5['PHASES'].unique()
 PU_Phases=list(PU_Phases)
 
-RB3=st.radio("Select an Active Rig: ",PU_Rigs)
+RB3=st.radio("Select PU Rig: ",PU_Rigs)
 Phases_Sliderrr = st.select_slider('Select Phase PU', options=PU_Phases)
 
 for i in range (0,len(PU_Rigs)):
