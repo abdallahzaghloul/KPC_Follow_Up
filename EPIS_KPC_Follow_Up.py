@@ -80,7 +80,9 @@ st.markdown(" <center> <h1> Open Critical Items for Active Rigs </h1> </font> </
 
 RB1=st.radio("Select an Active Rig: ",Rigs)
 
-Team=df1.reset_index(inplace=True)
+Team=df1
+Team.reset_index(inplace=True)
+
 for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
                         st.write(f"Critical Points of Rig {Rigs[i]} {(Team[Team['RIG_NO.']==Rigs[i]]['TEAM_NO.'][0])} ")
