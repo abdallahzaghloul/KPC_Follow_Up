@@ -60,6 +60,35 @@ for i in range (0,len(DRLG_Rigs)):
            
 
 
+st.markdown(" <center>  <h1> WO Open/In Progress Critical Points </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
+WO_Rigs=df4[df4['RIG_TYPE']=="WO"]['RIG_NO.'].unique()
+WO_Rigs=tuple(WO_Rigs)
+
+WO_Phases=df5['PHASES'].unique()
+WO_Phases=list(WO_Phases)
+
+RB2=st.radio("Select an Active Rig: ",WO_Rigs)
+Phases_Slider = st.select_slider('Select Phase', options=WO_Phases)
+
+for i in range (0,len(WO_Rigs)):
+            if (RB2==WO_Rigs[i]) and (Phases_Slider=="All"):
+                        st.write(f"Critical Points of Rig {WO_Rigs[i]} ")
+                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[i])]
+                        All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
+                        T1=st.dataframe(All_Critical,use_container_width=True)    
+            if (RB1==WO_Rigs[i]) and (Phases_Slider!="All"):
+                        st.write(f"Critical Points of Rig {WO_Rigs[i]} ")
+                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[i])&(df4['PHASE']==Phases_Slider)]
+                        All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
+                        T1=st.dataframe(All_Critical,use_container_width=True)                                    
+
+
+
+
+
+
+
 
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
