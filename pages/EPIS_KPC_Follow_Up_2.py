@@ -18,7 +18,9 @@ df4.columns  = [i.replace(' ','_') for i in df4.columns]
 df4.columns  = [i.upper() for i in df4.columns]
 df4.dropna(axis=0, inplace=True)
 df4.set_index('NO.', inplace=True)
+df['Final_Status']=df['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
+
 All_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
 All_Rigs=tuple(All_Rigs)
 st.image(image)
@@ -37,7 +39,7 @@ for i in range (0,len(All_Rigs)):
             if RB1==All_Rigs[i]:
                         st.write(f"Critical Points of Rig {All_Rigs[i]} ")
                         All_Critical=df4[df4['RIG_NO.']==All_Rigs[i]]
-                        All_Critical.drop(['LOCATION','RIG_NO.','PHASE','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
+                        All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
 
 
