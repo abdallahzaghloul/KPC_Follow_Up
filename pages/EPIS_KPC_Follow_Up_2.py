@@ -18,7 +18,7 @@ df4.columns  = [i.replace(' ','_') for i in df4.columns]
 df4.columns  = [i.upper() for i in df4.columns]
 df4.dropna(axis=0, inplace=True)
 df4.set_index('NO.', inplace=True)
-df['Final_Status']=df['FINAL_\nSTATUS']
+df4['Final_Status']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
 All_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
