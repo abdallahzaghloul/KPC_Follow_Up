@@ -34,18 +34,12 @@ st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
 
 RB1=st.radio("Select an Active Rig: ",All_Rigs)
 
-#Team=df4
-#Team.reset_index(inplace=True)
-#S=Team[Team['RIG_NO.']=="EDC-40"]['TEAM_NO.']
-#S=tuple(S)
-#S[0]
-#for i in range(0,len(Rigs)):
-#            if RB1==Rigs[i]:
-#                        st.write(f"Critical Points of Rig {Rigs[i]} {(S[0])} ")
-#                        Critical = df3[df3['RIG_NO.']==Rigs[i]]
-#                        Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY'],axis=1,inplace=True)
-#                        Critical=Critical.set_index('NO.')
-#                        T1=st.dataframe(Critical,use_container_width=True)                                    
+if RB1==All_Rigs[i]:
+            st.write(f"Critical Points of Rig {All_Rigs[i]} ")
+            All_Critical=df4[df4['RIG_NO.']==All_Rigs[i]]
+            All_Critical.drop(['LOCATION','RIG_NO.','PHASE','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
+            All_Critical=All_Critical.set_index('NO.')
+            T1=st.dataframe(All_Critical,use_container_width=True)                                    
 
 
 
