@@ -12,10 +12,13 @@ im = Image.open("EPIS.png")
 image = np.array(im)
 
 
-######################## df1 #############################################################
+######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
-
-
+df4.columns  = [i.replace(' ','_') for i in df4.columns]
+df4.columns  = [i.upper() for i in df4.columns]
+df4.dropna(axis=0, inplace=True)
+df4.set_index('NO.', inplace=True)
+df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 Rigs=df4['RIG_NO.'].unique()
 Rigs=tuple(Rigs)
 st.image(image)
