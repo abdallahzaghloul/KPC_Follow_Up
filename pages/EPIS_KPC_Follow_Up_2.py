@@ -20,6 +20,11 @@ df4.dropna(axis=0, inplace=True)
 df4.set_index('NO.', inplace=True)
 df4['Final_Status']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
+######################## df5 #############################################################
+
+df5 = pd.read_excel(url,'phases')
+df5.columns  = [i.replace(' ','_') for i in df5.columns]
+df5.columns  = [i.upper() for i in df5.columns]
 
 DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
 DRLG_Rigs=tuple(DRLG_Rigs)
@@ -34,7 +39,12 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 
+DRLG_Phases=df5['PHASES'].unique())
+DRLG_Phases=list(DRLG_Phases)
+
 RB1=st.radio("Select an Active Rig: ",DRLG_Rigs)
+Phases_Slider = st.select_slider('Select Phase', options=DRLG_Phases)
+
 for i in range (0,len(DRLG_Rigs)):
             if RB1==DRLG_Rigs[i]:
                         st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
@@ -42,9 +52,7 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
 
-DRLG_Phases=df4[df4['RIG_TYPE']=="DRLG"]['PHASE'].unique()
-DRLG_Phases=list(DRLG_Phases)
-Phases_Slider = st.select_slider('Select Phase', options=DRLG_Phases)
+
 
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
