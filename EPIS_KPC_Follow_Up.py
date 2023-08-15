@@ -82,10 +82,12 @@ RB1=st.radio("Select an Active Rig: ",Rigs)
 
 Team=df1
 Team.reset_index(inplace=True)
-
+S=Team[Team['RIG_NO.']=="EDC-40"]['TEAM_NO.']
+S=tuple(S)
+S[0]
 for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
-                        st.write(f"Critical Points of Rig {Rigs[i]} {(Team[Team['RIG_NO.']==Rigs[i]]['TEAM_NO.'][0])} ")
+                        st.write(f"Critical Points of Rig {Rigs[i]} {(S[0])} ")
                         Critical = df3[df3['RIG_NO.']==Rigs[i]]
                         Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY'],axis=1,inplace=True)
                         Critical=Critical.set_index('NO.')
