@@ -92,19 +92,19 @@ st.markdown(" <center>  <h1> PU Open/In Progress Critical Points </h1> </font> <
 PU_Rigs=df4[df4['RIG_TYPE']=="PU"]['RIG_NO.'].unique()
 PU_Rigs=tuple(PU_Rigs)
 
-WO_Phases=df5['PHASES'].unique()
-WO_Phases=list(WO_Phases)
+PU_Phases=df5['PHASES'].unique()
+PU_Phases=list(PU_Phases)
 
-RB2=st.radio("Select an Active Rig: ",PU_Rigs)
-Phases_Sliderrr = st.select_slider('Select Phase PU', options=WO_Phases)
+RB3=st.radio("Select an Active Rig: ",PU_Rigs)
+Phases_Sliderrr = st.select_slider('Select Phase PU', options=PU_Phases)
 
 for i in range (0,len(PU_Rigs)):
-            if (RB2==WO_Rigs[i]) and (Phases_Sliderrr=="All"):
+            if (RB3==PU_Rigs[i]) and (Phases_Sliderrr=="All"):
                         st.write(f"Critical Points of Rig {PU_Rigs[i]} ")
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)    
-            if (RB2==PU_Rigs[i]) and (Phases_Sliderr!="All"):
+            if (RB3==PU_Rigs[i]) and (Phases_Sliderr!="All"):
                         st.write(f"Critical Points of Rig {PU_Rigs[i]} ")
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])&(df4['PHASE']==Phases_Sliderr)]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
