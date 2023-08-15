@@ -21,8 +21,8 @@ df4.set_index('NO.', inplace=True)
 df4['Final_Status']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
-All_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
-All_Rigs=tuple(All_Rigs)
+DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
+DRLG_Rigs=tuple(DRLG_Rigs)
 st.image(image)
 
 
@@ -34,16 +34,20 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 st.markdown(" <right>  <h1> (I) Survey/Audit</h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 
-RB1=st.radio("Select an Active Rig: ",All_Rigs)
-for i in range (0,len(All_Rigs)):
-            if RB1==All_Rigs[i]:
-                        st.write(f"Critical Points of Rig {All_Rigs[i]} ")
-                        All_Critical=df4[df4['RIG_NO.']==All_Rigs[i]]
+RB1=st.radio("Select an Active Rig: ",DRLG_Rigs)
+for i in range (0,len(DRLG_Rigs)):
+            if RB1==DRLG_Rigs[i]:
+                        st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
+                        All_Critical=df4[df4['RIG_NO.']==DRLG_Rigs[i]]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
 
-
-
+#DRLG_Phases=df4[df4['RIG_TYPE']=="DRLG"]['PHASE'].unique()
+#All_Rigs=tuple(All_Rigs)
+#Phases_Slider = st.select_slider(
+#    'Select a color of the rainbow',
+#    options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
+#st.write('My favorite color is', color)
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
 
