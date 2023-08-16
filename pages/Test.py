@@ -10,7 +10,7 @@ import datetime
 File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
-
+st.set_page_config(layout="wide")
 
 ######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
@@ -112,11 +112,12 @@ for iii in range (0,len(PU_Rigs)):
 
 DRLG_Owner=df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique()
 DRLG_Owner=list(DRLG_Owner)
-DRLG_Owner=len(DRLG_Owner)
 
 
-column= st.columns(DRLG_Owner)
 
+column= st.columns(len(DRLG_Owner))
+for i in range (0,len(DRLG_Owner)):
+            column[i].header(f"{DRLG_Owner[i]} DRLG Rigs")
 
 
 
