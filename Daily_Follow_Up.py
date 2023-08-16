@@ -47,7 +47,7 @@ df2['TODAY_DATE']=datetime.date.today()
 df2["TODAY_DATE"]= pd.to_datetime(df2["TODAY_DATE"])
 df2['DAYS_COUNT'] = df2.TODAY_DATE-df2.LAST_VISIT
 df2['LAST_VISIT']=df2['LAST_VISIT'].dt.strftime('%d-%m-%Y')
-df2[['DAYS_COUNT']=['DAYS_COUNT'].str.split(' ').str[0:2]
+df2[['DAYS_COUNT']=df2['DAYS_COUNT'].str.split(' ').str[0:2]
 df2.drop(['WELL_NAME','TODAY_DATE','FIELD'],axis=1, inplace=True)
 ######################## df3 #############################################################
 df3 = pd.read_excel(File,'Active_Critical_Points')
