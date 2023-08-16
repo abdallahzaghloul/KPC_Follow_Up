@@ -10,7 +10,7 @@ import datetime
 File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
-
+st.set_page_config(layout="wide")
 
 ######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
