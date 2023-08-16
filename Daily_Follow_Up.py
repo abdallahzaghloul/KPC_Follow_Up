@@ -18,6 +18,8 @@ df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
 df1.dropna(axis=0, inplace=True)
 df1['TODAY_DATE']=datetime.date.today()
+df1['STARTING_DATE']=df1['STARTING_DATE'].astype(str)
+df1['STARTING_DATE']=df1['STARTING_DATE'].str.split(' ').str[0]
 df1["STARTING_DATE"]= pd.to_datetime(df1["STARTING_DATE"])
 df1["TODAY_DATE"]= pd.to_datetime(df1["TODAY_DATE"])
 df1['SPENT_DAYS']=df1.TODAY_DATE-df1.STARTING_DATE
