@@ -77,7 +77,7 @@ for i in range (0,len(DRLG_Rigs)):
            
 st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
 Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-V=len(list(df4[(df4["RIG_NO."]=DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]))
+V=len(list(df4[(df4["RIG_NO."]==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]))
 st.write(f"Total Points of = {V} ")
 st.write(f"Days since open  = ")
 
