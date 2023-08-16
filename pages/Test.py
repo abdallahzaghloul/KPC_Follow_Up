@@ -26,8 +26,6 @@ df5 = pd.read_excel(File,'phases')
 df5.columns  = [i.replace(' ','_') for i in df5.columns]
 df5.columns  = [i.upper() for i in df5.columns]
 
-DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
-DRLG_Rigs=tuple(DRLG_Rigs)
 st.image(image)
 
 
@@ -42,7 +40,17 @@ st.markdown(" <center>  <h1> Drilling Open/In Progress Critical Points </h1> </f
 DRLG_Phases=df5['PHASES'].unique()
 DRLG_Phases=list(DRLG_Phases)
 
-RB1=st.radio("Select DRLG Rig: ",DRLG_Rigs)
+DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
+DRLG_Rigs=tuple(DRLG_Rigs)
+
+DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
+
+column= st.columns(len(DRLG_Owner))
+for v in range (0,len(DRLG_Owner)):
+            column[v].header(f"{DRLG_Owner[v]}")
+            DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[v])]['RIG_NO.'].unique())
+            RB1=column[v].radio(f"Select {DRLG_Owner[v]} Rig: ",DRLG_Owner_RB)
+
 Phases_Slider = st.select_slider('Select DRLG Phase', options=DRLG_Phases)
 
 for i in range (0,len(DRLG_Rigs)):
@@ -110,13 +118,7 @@ for iii in range (0,len(PU_Rigs)):
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
 
-DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
 
-column= st.columns(len(DRLG_Owner))
-for i in range (0,len(DRLG_Owner)):
-            column[i].header(f"{DRLG_Owner[i]}")
-            DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[i])]['RIG_NO.'].unique())
-            column[i].radio(f"Select {DRLG_Owner[i]} Rig: ",DRLG_Owner_RB)
             
 
             
