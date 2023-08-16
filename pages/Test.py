@@ -57,6 +57,13 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
            
+Q1=df4[df4[('RIG_NO.']==RB1)].count()
+Q1[0]
+column[0].write()
+
+
+
+
 
 
 st.markdown(" <center>  <h1> WO Open/In Progress Critical Points </h1> </font> </center> </h1> ",
@@ -110,9 +117,7 @@ for iii in range (0,len(PU_Rigs)):
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
 
-
-
-
+column = st.columns(4)
 
 
 
