@@ -120,7 +120,7 @@ for iii in range (0,len(PU_Rigs)):
 
 DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
 
-column= st.columns(len(DRLG_Owner))
+T=[]
 for v in range (0,len(DRLG_Owner)):
             T[i]= st.tabs(DRLG_Owner)
 #            #column[v].header(f"{DRLG_Owner[v]}")
