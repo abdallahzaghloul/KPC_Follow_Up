@@ -84,8 +84,8 @@ st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
 
 
 Drops=df2
-#Drops=Drops.transpose()
-st.dataframe(Drops.style.highlight_max(axis=0))
+Drops=Drops.transpose()
+st.dataframe(Drops)
 
 
 
