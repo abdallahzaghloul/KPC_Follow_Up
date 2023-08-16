@@ -122,7 +122,7 @@ DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
 
 
 for v in range (0,len(DRLG_Owner)):
-            subheader(f"{DRLG_Owner[v]} Rig ")
+            st.tabs(DRLG_Owner)
             DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[v])]['RIG_NO.'].unique())
 #            RB1=T[v].radio(f"Select {DRLG_Owner[v]} Rig: ",DRLG_Owner_RB)
 
