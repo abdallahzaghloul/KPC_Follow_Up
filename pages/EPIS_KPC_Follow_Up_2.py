@@ -70,15 +70,15 @@ WO_Phases=list(WO_Phases)
 RB2=st.radio("SelectWO Rig: ",WO_Rigs)
 Phases_Sliderr = st.select_slider('Select Phase WO', options=WO_Phases)
 
-for i in range (0,len(WO_Rigs)):
-            if (RB2==WO_Rigs[i]) and (Phases_Sliderr=="All"):
-                        st.write(f"Critical Points of Rig {WO_Rigs[i]} ")
-                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[i])]
+for ii in range (0,len(WO_Rigs)):
+            if (RB2==WO_Rigs[ii]) and (Phases_Sliderr=="All"):
+                        st.write(f"Critical Points of Rig {WO_Rigs[ii]} ")
+                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[ii])]
                         All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Criticall,use_container_width=True)    
-            if (RB2==WO_Rigs[i]) and (Phases_Sliderr!="All"):
-                        st.write(f"Critical Points of Rig {WO_Rigs[i]} ")
-                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[i])&(df4['PHASE']==Phases_Sliderr)]
+            if (RB2==WO_Rigs[ii]) and (Phases_Sliderr!="All"):
+                        st.write(f"Critical Points of Rig {WO_Rigs[ii]} ")
+                        All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[ii])&(df4['PHASE']==Phases_Sliderr)]
                         All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Criticall,use_container_width=True)                                    
 
@@ -97,15 +97,15 @@ PU_Phases=list(PU_Phases)
 RB3=st.radio("Select PU Rig: ",PU_Rigs)
 Phases_Sliderrr = st.select_slider('Select Phase PU', options=PU_Phases)
 
-for i in range (0,len(PU_Rigs)):
-            if (RB3==PU_Rigs[i]) and (Phases_Sliderrr=="All"):
-                        st.write(f"Critical Points of Rig {PU_Rigs[i]} ")
-                        All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])]
+for iii in range (0,len(PU_Rigs)):
+            if (RB3==PU_Rigs[iii]) and (Phases_Sliderrr=="All"):
+                        st.write(f"Critical Points of Rig {PU_Rigs[iii]} ")
+                        All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[iii])]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
-                        T1=st.dataframe(All_Critical,use_container_width=True)    
-            if (RB3==PU_Rigs[i]) and (Phases_Sliderrr!="All"):
-                        st.write(f"Critical Points of Rig {PU_Rigs[i]} ")
-                        All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[i])&(df4['PHASE']==Phases_Sliderrr)]
+                        T1=st.dataframe(All_Criticalll,use_container_width=True)    
+            if (RB3==PU_Rigs[iii]) and (Phases_Sliderrr!="All"):
+                        st.write(f"Critical Points of Rig {PU_Rigs[iii]} ")
+                        All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[iii])&(df4['PHASE']==Phases_Sliderrr)]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
