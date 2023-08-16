@@ -73,7 +73,7 @@ for i in range (0,len(DRLG_Rigs)):
             if (RB1==DRLG_Rigs[i]) and (Phases_Slider!="All"):
                         st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
                         Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-                        st.write(f"Total Points of = {len(list(df4[(df4["RIG_NO."]=="EDC-62")&(df4['PHASE']=="FCS-1")]))} ")
+                        st.write(f"Total Points of = {len(list(df4[(df4["RIG_NO."]=DRLG_Rigs[i)&(df4['PHASE']==Phases_Slider)]))} ")
                         st.write(f"Days since open  = ")
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
