@@ -34,8 +34,8 @@ df6 = pd.read_excel(File,'Phase_Dates')
 df6.columns  = [i.replace(' ','_') for i in df6.columns]
 df6.columns  = [i.upper() for i in df6.columns]
 df6.dropna(axis=0, inplace=True)
-df6['DATE']=df6['DATE'].astype(str)
-df6['DATE']=df6['DATE'].str.split(' ').str[0]
+#df6['DATE']=df6['DATE'].astype(str)
+#df6['DATE']=df6['DATE'].str.split(' ').str[0]
 df6["DATE"]= pd.to_datetime(df6["DATE"])
 df6['TODAY_DATE']=datetime.date.today()
 df6["TODAY_DATE"]= pd.to_datetime(df6["TODAY_DATE"])
