@@ -119,8 +119,8 @@ for i in range (0,len(DRLG_Owner)):
             column[i].RB=st.radio(f"Select {DRLG_Owner[i]} Rig: ",DRLG_Owner_RB)
 
 K=st.columns(3)
-for i in range(3):
-            k[i].RB=st.radio(">>> ",i)
+for i in range(0,3):
+            K[i].RB=st.radio(">>> ",i)
             
 
 
