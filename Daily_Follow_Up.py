@@ -35,6 +35,20 @@ df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('TEAM_NO.')
 df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%'].astype(str)
 df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%']+"%"
+######################## df2 #############################################################
+df2 = pd.read_excel(File,'Drops_Teams_Follow_Up')
+df2.columns  = [i.replace(' ','_') for i in df2.columns]
+df2.columns  = [i.upper() for i in df2.columns]
+df2['LAST_VISIT']=df2['LAST_VISIT'].astype(str)
+df2['LAST_VISIT']=df2['LAST_VISIT'].str.split(' ').str[0]
+df2["LAST_VISIT"]= pd.to_datetime(df2["LAST_VISIT"])
+df2=df2.set_index('TEAM_NO.')
+df2['TODAY_DATE']=datetime.date.today()
+df2["TODAY_DATE"]= pd.to_datetime(df2["TODAY_DATE"])
+df2['DAYS_COUNT'] = df2.TODAY_DATE-df2.LAST_VISIT
+df2['LAST_VISIT']=df2['LAST_VISIT'].dt.strftime('%d-%m-%Y')
+
+df2.drop(['WELL_NAME','TODAY_DATE','FIELD'],axis=1, inplace=True)
 ######################## df3 #############################################################
 df3 = pd.read_excel(File,'Active_Critical_Points')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
@@ -44,6 +58,9 @@ df3['FINAL_STATUS']=df3['FINAL_\nSTATUS'].str.upper()
 df3.drop('FINAL_\nSTATUS',axis=1, inplace=True)
 Rigs=df3['RIG_NO.'].unique()
 Rigs=tuple(Rigs)
+
+
+
 st.image(image)
 
 
@@ -66,12 +83,9 @@ st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
 
 
-
-#Drops=df2
-#Drops.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
+Drops=df2
 #Drops=Drops.transpose()
-st.write("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-#st.dataframe(Drops.style.highlight_max(axis=0))
+st.dataframe(Drops.style.highlight_max(axis=0))
 
 
 
