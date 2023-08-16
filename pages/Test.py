@@ -120,12 +120,12 @@ for iii in range (0,len(PU_Rigs)):
 
 DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
 
-T=st.tabs(["Cat"])
+T=[]
 for v in range (0,len(DRLG_Owner)):
-            T[v]= st.tabs(DRLG_Owner)
-#            #column[v].header(f"{DRLG_Owner[v]}")
-#            #DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[v])]['RIG_NO.'].unique())
-#            #RB1=column[v].radio(f"Select {DRLG_Owner[v]} Rig: ",DRLG_Owner_RB)
+            T.append("T"+str(v))
+            T[v].subheader(f"{DRLG_Owner[v]} Rig ")
+            DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[v])]['RIG_NO.'].unique())
+            RB1=T[v].radio(f"Select {DRLG_Owner[v]} Rig: ",DRLG_Owner_RB)
 
 
             
