@@ -116,9 +116,12 @@ column= st.columns(len(DRLG_Owner))
 for i in range (0,len(DRLG_Owner)):
             column[i].header(f"{DRLG_Owner[i]}")
             DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[i])]['RIG_NO.'].unique())
-            column[i].RB[i]=st.radio(f"Select {DRLG_Owner[i]} Rig: ",DRLG_Owner_RB)
+            column[i].RB=st.radio(f"Select {DRLG_Owner[i]} Rig: ",DRLG_Owner_RB)
 
-
+K=st.columns(3)
+for i in range(3):
+            k[i].RB=st.radio(">>> ",i)
+            
 
 
 
