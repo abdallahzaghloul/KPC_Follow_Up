@@ -117,7 +117,7 @@ for iii in range (0,len(PU_Rigs)):
 column = st.columns(4)
 
 
-Q1=df4[df4[('RIG_NO.']==RB1)].count()
+Q1=df4[(df4['RIG_NO.']==RB1)].count()
 Q1[0]
 column[0].write()
 
