@@ -118,6 +118,15 @@ for iii in range (0,len(PU_Rigs)):
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
 
+DRLG_Owner=list(df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique())
+
+column= st.columns(len(DRLG_Owner))
+for v in range (0,len(DRLG_Owner)):
+            T[i]= st.tabs(DRLG_Owner)
+#            #column[v].header(f"{DRLG_Owner[v]}")
+#            #DRLG_Owner_RB=list(df4[(df4['RIG_TYPE']=="DRLG")&(df4['RIG_OWNER']==DRLG_Owner[v])]['RIG_NO.'].unique())
+#            #RB1=column[v].radio(f"Select {DRLG_Owner[v]} Rig: ",DRLG_Owner_RB)
+
 
             
 
