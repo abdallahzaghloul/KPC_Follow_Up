@@ -112,6 +112,9 @@ for iii in range (0,len(PU_Rigs)):
 
 DRLG_Owner=df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].unique()
 DRLG_Owner=list(DRLG_Owner)
+DRLG_Owner=len(DRLG_Owner)
+
+
 column= st.columns(DRLG_Owner)
 
 
