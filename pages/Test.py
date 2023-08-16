@@ -110,8 +110,8 @@ for iii in range (0,len(PU_Rigs)):
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
 
-
-st.session_state
+DRLG_Owner=df4[(df4['RIG_TYPE']=="DRLG")]['RIG_OWNER'].count()
+column= st.columns(DRLG_Owner)
 
 
 
