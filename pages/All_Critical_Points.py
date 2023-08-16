@@ -30,7 +30,7 @@ DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
 DRLG_Rigs=tuple(DRLG_Rigs)
 ######################## df6 #############################################################
 
-df6 = pd.read_excel(url,'Phase_Dates')
+df6 = pd.read_excel(File,'Phase_Dates')
 df6.columns  = [i.replace(' ','_') for i in df6.columns]
 df6.columns  = [i.upper() for i in df6.columns]
 df6.dropna(axis=0, inplace=True)
