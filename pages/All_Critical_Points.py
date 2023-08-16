@@ -70,16 +70,16 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)    
-            if (RB1==DRLG_Rigs[i]) and (Phases_Slider!="All"):
-                        st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
-                        Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-                        st.write(f"Total Points of = {len(list(df4[(df4["RIG_NO."]=DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]))} ")
-                        st.write(f"Days since open  = ")
+            if (RB1==DRLG_Rigs[i]) and (Phases_Slider!="All"):                       
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE','RIG_OWNER'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
            
-
+st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
+Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
+V=len(list(df4[(df4["RIG_NO."]=DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]))
+st.write(f"Total Points of = {V} ")
+st.write(f"Days since open  = ")
 
 st.markdown(" <center>  <h1> WO Open/In Progress Critical Points </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
