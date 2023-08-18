@@ -51,7 +51,7 @@ df2['DAYS_COUNT']=df2['DAYS_COUNT'].astype('str')
 df2['DAYS_COUNT']=df2['DAYS_COUNT'].str.split(' ').str[0:2].str.join(' ')
 df2.drop(['WELL_NAME','TODAY_DATE','FIELD'],axis=1, inplace=True)
 ######################## df3 #############################################################
-df3 = pd.read_excel(File,'Active_Critical_Points')
+df3 = pd.read_excel(File,'All_Critical_Points')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
 df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
