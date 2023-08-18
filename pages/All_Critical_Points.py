@@ -110,8 +110,7 @@ if (Phases_Slider!="All"):
     st.write("There were no critical points @ {Phases_Slider}")
   
   V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
-  st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
-  st.write(f"Items were open since {Years} Years {Months} Months {Days} Days")                    
+  st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")                  
 elif  (Phases_Slider=="All"):
     Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
