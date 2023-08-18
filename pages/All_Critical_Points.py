@@ -176,7 +176,7 @@ st.markdown(" <center>  <h1> PU Open/In Progress Critical Points </h1> </font> <
 PU_Phases=df5['PHASES'].unique()
 PU_Phases=list(PU_Phases)
 
-RB3=st.radio("Select PU Rig: ",PU_Rigs)
+RB3=st.radio("Select PU : ",PU_Rigs)
 Phases_Sliderrr = st.select_slider('Select Phase PU', options=PU_Phases)
 
 for iii in range (0,len(PU_Rigs)):
