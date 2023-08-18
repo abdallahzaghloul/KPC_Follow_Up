@@ -57,7 +57,7 @@ df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
 df3['FINAL_STATUS']=df3['FINAL_\nSTATUS'].str.upper()
 df3.drop('FINAL_\nSTATUS',axis=1, inplace=True)
-Rigs=df3['RIG_NO.'].unique()
+Rigs=df3[(df3['ACTIVITY']==1)]['RIG_NO.'].unique()
 Rigs=tuple(Rigs)
 
 
@@ -105,8 +105,7 @@ for i in range(0,len(Rigs)):
                         S=Team[Team['RIG_NO.']==Rigs[i]]['TEAM_NO.']
                         S=tuple(S)
                         st.write(f"Critical Points of Rig {Rigs[i]} {(S[0])} ")
-                        Critical = df3[(df3['RIG_NO.']==Rigs[i])& (df3['ACTIVITY']==1)]
-#                       Critical = df3[df3['RIG_NO.']==Rigs[i]]
+                        Critical = df3[df3['RIG_NO.']==Rigs[i]]
                         Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY'],axis=1,inplace=True)
                         Critical=Critical.set_index('NO.')
                         T1=st.dataframe(Critical,use_container_width=True)                                    
