@@ -126,10 +126,7 @@ if (Phases_Slider!="All"):
     Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0) 
     V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
     st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
-    st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
-  elif Phases_Slider not in Rig_Phase_1:
-    st.write(f"There were no registered points @ {Phases_Slider} or The Phase was not carried yet")
-    
+    st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")    
 elif  (Phases_Slider=="All"):
     st.write(f"Critical Points of Rig {RB1} ")
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
