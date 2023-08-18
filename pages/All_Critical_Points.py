@@ -97,18 +97,24 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)
-st.write(f"Critical Points of Rig {RB1} ")
+
 Rig_Phase=list(df4[(df4["RIG_NO."]==RB1)]['PHASE'])
 if (Phases_Slider!="All"):
   if Phases_Slider in Rig_Phase:
+    st.write(f"Critical Points of Rig {RB1} ")
     Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
     Day_Count=float(Day_Count[0])
     Years=math.floor(Day_Count/365)
     Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
     Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0) 
     V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
-    st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")                  
+    st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
+    st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
+  elif Phases_Slider in Rig_Phase:
+    st.write("There were no registered points @ {Phases_Slider} or The Phase was not carried yet")
+    
 elif  (Phases_Slider=="All"):
+    st.write(f"Critical Points of Rig {RB1} ")
     Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
     st.write(f"Total Points of Rig {RB1} = {V} Points")
