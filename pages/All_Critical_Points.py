@@ -61,7 +61,6 @@ df6["DATE"]= pd.to_datetime(df6["DATE"])
 df6['TODAY_DATE']=datetime.date.today()
 df6["TODAY_DATE"]= pd.to_datetime(df6["TODAY_DATE"])
 df6['DAYS_COUNT'] = df6.TODAY_DATE-df6.DATE
-#df6=df6.set_index('RIG_NO.')
 df6.drop('TODAY_DATE',axis=1,inplace=True)
 df6['DATE']=df6['DATE'].dt.strftime('%d-%m-%Y')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].str.split(' ').str[0]
