@@ -96,9 +96,9 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)                                    
            
-st.write(f"Critical Points of Rig {DRLG_Rigs[i]} ")
+st.write(f"Critical Points of Rig {RB1} ")
 Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-V=len(list(df4[(df4["RIG_NO."]==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]))
+V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]))
 st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V}")
 st.write(f"Days since open  =  ")
 
