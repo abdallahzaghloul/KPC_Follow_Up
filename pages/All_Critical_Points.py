@@ -54,6 +54,7 @@ df6 = pd.read_excel(File,'Phase_Dates')
 df6.columns  = [i.replace(' ','_') for i in df6.columns]
 df6.columns  = [i.upper() for i in df6.columns]
 df6.dropna(axis=0, inplace=True)
+
 #df6['DATE']=df6['DATE'].astype(str)
 #df6['DATE']=df6['DATE'].str.split(' ').str[0]
 df6["DATE"]= pd.to_datetime(df6["DATE"])
@@ -64,7 +65,10 @@ df6.drop('TODAY_DATE',axis=1,inplace=True)
 df6['DATE']=df6['DATE'].dt.strftime('%d-%m-%Y')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].astype('str')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].str.split(' ').str[0]
-
+df6['RIG_NO.']  = [i.replace(' ','_') for i in df6['RIG_NO.']]
+df6['RIG_NO.']  = [i.upper() for i in df6['RIG_NO.']]
+df6['PHASE']  = [i.replace(' ','_') for i in df6['PHASE']]
+df6['PHASE']  = [i.upper() for i in df6['PHASE']]
 
 
 st.image(image)
