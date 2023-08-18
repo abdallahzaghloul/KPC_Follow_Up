@@ -15,8 +15,7 @@ df1 = pd.read_excel(File,'Audit_Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
 df1.dropna(axis=0, inplace=True)
-df1['RIG_NO.']  = [i.replace(' ','_') for i in df1['RIG_NO.']]
-df1['RIG_NO.']  = [i.upper() for i in df1['RIG_NO.']]
+
 
 ######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
@@ -52,8 +51,6 @@ PU_Rigs=tuple(PU_Rigs)
 df5 = pd.read_excel(File,'phases')
 df5.columns  = [i.replace(' ','_') for i in df5.columns]
 df5.columns  = [i.upper() for i in df5.columns]
-df5['PHASES']  = [i.replace(' ','_') for i in df5['PHASES']]
-df5['PHASES']  = [i.upper() for i in df5['PHASES']]
 
 ######################## df6 #############################################################
 
@@ -72,10 +69,6 @@ df6.drop('TODAY_DATE',axis=1,inplace=True)
 df6['DATE']=df6['DATE'].dt.strftime('%d-%m-%Y')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].astype('str')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].str.split(' ').str[0]
-df6['RIG_NO.']  = [i.replace(' ','') for i in df6['RIG_NO.']]
-df6['RIG_NO.']  = [i.upper() for i in df6['RIG_NO.']]
-df6['PHASE']  = [i.replace(' ','') for i in df6['PHASE']]
-df6['PHASE']  = [i.upper() for i in df6['PHASE']]
 
 
 st.image(image)
