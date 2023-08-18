@@ -88,7 +88,7 @@ for i in range (0,len(DRLG_Rigs)):
             if (RB1==DRLG_Rigs[i]) and (Phases_Slider=="All"):
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Critical.set_index("NO.")
+                        All_Critical=All_Critical.set_index("NO.")
                         T1=st.dataframe(All_Critical,use_container_width=True)
                       
                        
@@ -96,7 +96,7 @@ for i in range (0,len(DRLG_Rigs)):
             if (RB1==DRLG_Rigs[i]) and (Phases_Slider!="All"):                       
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])&(df4['PHASE']==Phases_Slider)]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Critical.set_index("NO.")
+                        All_Critical=All_Critical.set_index("NO.")
                         T1=st.dataframe(All_Critical,use_container_width=True)
 
 Rig_Phase_1=list(df4[(df4["RIG_NO."]==RB1)]['PHASE'])
@@ -138,13 +138,13 @@ for ii in range (0,len(WO_Rigs)):
                         st.write(f"Critical Points of Rig {WO_Rigs[ii]} ")
                         All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[ii])]
                         All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Criticall.set_index("NO.")
+                        All_Criticall=All_Criticall.set_index("NO.")
                         T1=st.dataframe(All_Criticall,use_container_width=True)    
             if (RB2==WO_Rigs[ii]) and (Phases_Sliderr!="All"):
                         st.write(f"Critical Points of Rig {WO_Rigs[ii]} ")
                         All_Criticall=df4[(df4['RIG_NO.']==WO_Rigs[ii])&(df4['PHASE']==Phases_Sliderr)]
                         All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Criticall.set_index("NO.")
+                        All_Criticall=All_Criticall.set_index("NO.")
                         T1=st.dataframe(All_Criticall,use_container_width=True)                                    
 
 Rig_Phase_2=list(df4[(df4["RIG_NO."]==RB2)]['PHASE'])
@@ -184,13 +184,13 @@ for iii in range (0,len(PU_Rigs)):
                         st.write(f"Critical Points of Rig {PU_Rigs[iii]} ")
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[iii])]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Criticalll.set_index("NO.")
+                        All_Criticalll=All_Criticalll.set_index("NO.")
                         T1=st.dataframe(All_Criticalll,use_container_width=True)    
             if (RB3==PU_Rigs[iii]) and (Phases_Sliderrr!="All"):
                         st.write(f"Critical Points of Rig {PU_Rigs[iii]} ")
                         All_Criticalll=df4[(df4['RIG_NO.']==PU_Rigs[iii])&(df4['PHASE']==Phases_Sliderrr)]
                         All_Criticalll.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
-                        All_Criticalll.set_index("NO.")
+                        All_Criticalll=All_Criticalll.set_index("NO.")
                         T1=st.dataframe(All_Criticalll,use_container_width=True)                                    
 
 
