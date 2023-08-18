@@ -26,8 +26,7 @@ df4['Final_Status']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
 Omit_Rigs=tuple(df1['RIG_NO.'].unique())
-for x in Omit_Rigs:
-  df4.drop(df4[df4['RIG_NO.']==x].index,axis=0, inplace=True)
+df4.drop(df4[df4['RIG_NO.']==Omit_Rigs].index,axis=0, inplace=True)
 
 
 
