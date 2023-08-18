@@ -10,7 +10,11 @@ import datetime
 File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
-
+######################## df1 #############################################################
+df1 = pd.read_excel(File,'Audit_Teams_Follow_Up')
+df1.columns  = [i.replace(' ','_') for i in df1.columns]
+df1.columns  = [i.upper() for i in df1.columns]
+df1.dropna(axis=0, inplace=True)
 
 ######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
@@ -20,14 +24,31 @@ df4.dropna(axis=0, inplace=True)
 df4.set_index('NO.', inplace=True)
 df4['Final_Status']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
+
+Omit_Rigs=tuple(df1['RIG_NO.'].unique())
+for x in Omit_Rigs:
+  df4.drop(df4[df4['RIG_NO.']==x].index,axis=0, inplace=True)
+
+
+
+DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
+DRLG_Rigs=tuple(DRLG_Rigs)
+
+WO_Rigs=df4[df4['RIG_TYPE']=="WO"]['RIG_NO.'].unique()
+WO_Rigs=tuple(WO_Rigs)
+
+
+PU_Rigs=df4[df4['RIG_TYPE']=="PU"]['RIG_NO.'].unique()
+PU_Rigs=tuple(PU_Rigs)
+
+
+
+
 ######################## df5 #############################################################
 
 df5 = pd.read_excel(File,'phases')
 df5.columns  = [i.replace(' ','_') for i in df5.columns]
 df5.columns  = [i.upper() for i in df5.columns]
-
-DRLG_Rigs=df4[df4['RIG_TYPE']=="DRLG"]['RIG_NO.'].unique()
-DRLG_Rigs=tuple(DRLG_Rigs)
 ######################## df6 #############################################################
 
 df6 = pd.read_excel(File,'Phase_Dates')
@@ -83,8 +104,7 @@ st.write(f"Days since open  = ")
 
 st.markdown(" <center>  <h1> WO Open/In Progress Critical Points </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-WO_Rigs=df4[df4['RIG_TYPE']=="WO"]['RIG_NO.'].unique()
-WO_Rigs=tuple(WO_Rigs)
+
 
 WO_Phases=df5['PHASES'].unique()
 WO_Phases=list(WO_Phases)
@@ -110,8 +130,6 @@ for ii in range (0,len(WO_Rigs)):
 
 st.markdown(" <center>  <h1> PU Open/In Progress Critical Points </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-PU_Rigs=df4[df4['RIG_TYPE']=="PU"]['RIG_NO.'].unique()
-PU_Rigs=tuple(PU_Rigs)
 
 PU_Phases=df5['PHASES'].unique()
 PU_Phases=list(PU_Phases)
