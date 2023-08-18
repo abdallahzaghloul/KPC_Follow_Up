@@ -79,7 +79,7 @@ Audit.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
 
 st.dataframe(Audit)
-
+st.write("Not mentioned teams are at home \n For more details you can check the plan")
 
 st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
