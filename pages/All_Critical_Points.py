@@ -15,6 +15,8 @@ df1 = pd.read_excel(File,'Audit_Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
 df1.dropna(axis=0, inplace=True)
+df1['RIG_NO.']  = [i.replace(' ','_') for i in df6['RIG_NO.']]
+df1['RIG_NO.']  = [i.upper() for i in df6['RIG_NO.']]
 
 ######################## df4 #############################################################
 df4 = pd.read_excel(File,'All_Critical_Points')
@@ -24,6 +26,13 @@ df4.dropna(axis=0, inplace=True)
 
 df4['FINAL_STATUS']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
+
+df4['RIG_NO.']  = [i.replace(' ','_') for i in df6['RIG_NO.']]
+df4['RIG_NO.']  = [i.upper() for i in df6['RIG_NO.']]
+df6['PHASE']  = [i.replace(' ','_') for i in df6['PHASE']]
+df6['PHASE']  = [i.upper() for i in df6['PHASE']]
+df4['RIG_TYPE']  = [i.replace(' ','_') for i in df6['RIG_TYPE']]
+df4['RIG_TYPE']  = [i.upper() for i in df6['RIG_TYPE']]
 
 Omit_Rigs=tuple(df1['RIG_NO.'].unique())
 
@@ -48,6 +57,9 @@ PU_Rigs=tuple(PU_Rigs)
 df5 = pd.read_excel(File,'phases')
 df5.columns  = [i.replace(' ','_') for i in df5.columns]
 df5.columns  = [i.upper() for i in df5.columns]
+df4['PHASES']  = [i.replace(' ','_') for i in df6['PHASES']]
+df4['PHASES']  = [i.upper() for i in df6['PHASES']]
+
 ######################## df6 #############################################################
 
 df6 = pd.read_excel(File,'Phase_Dates')
