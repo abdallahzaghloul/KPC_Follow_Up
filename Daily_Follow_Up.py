@@ -90,7 +90,7 @@ st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
 Drops=df2
 Drops=Drops.transpose()
 st.dataframe(Drops)
-st.write("Not mentioned audit teams are at home")
+st.write("Not mentioned drops teams are at home")
 st.write("For more details you can check the plan")
 
 
