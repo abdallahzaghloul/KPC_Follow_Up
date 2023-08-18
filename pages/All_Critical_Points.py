@@ -99,12 +99,15 @@ for i in range (0,len(DRLG_Rigs)):
                         T1=st.dataframe(All_Critical,use_container_width=True)
 st.write(f"Critical Points of Rig {RB1} ")
 Rig_Phase=list(df6[(df6["RIG_NO."]==RB1)]['PHASE'])
-if (Phases_Slider!="All") & Phases_Slider in Rig_Phase:
-  Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-  Day_Count=float(Day_Count[0])
-  Years=math.floor(Day_Count/365)
-  Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
-  Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0)
+if (Phases_Slider!="All"):
+  if Phases_Slider in Rig_Phase:
+    Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
+    Day_Count=float(Day_Count[0])
+    Years=math.floor(Day_Count/365)
+    Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
+    Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0)
+  elif (Phases_Slider!="All") & Phases_Slider not in Rig_Phase:
+    st.write("There were no critical points @ {Phases_Slider}")
   
   V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
   st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
@@ -113,8 +116,7 @@ elif  (Phases_Slider=="All"):
     Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
     st.write(f"Total Points of Rig {RB1} = {V} Points")
-elif (Phases_Slider!="All") & Phases_Slider not in Rig_Phase:
-    st.write("There were no critical points @ {Phases_Slider}")
+
   
   
 
