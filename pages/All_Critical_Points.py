@@ -21,8 +21,8 @@ df4 = pd.read_excel(File,'All_Critical_Points')
 df4.columns  = [i.replace(' ','_') for i in df4.columns]
 df4.columns  = [i.upper() for i in df4.columns]
 df4.dropna(axis=0, inplace=True)
-df4.set_index('NO.', inplace=True)
-df4['Final_Status']=df4['FINAL_\nSTATUS']
+
+df4['FINAL_STATUS']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
 Omit_Rigs=tuple(df1['RIG_NO.'].unique())
