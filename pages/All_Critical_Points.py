@@ -90,7 +90,7 @@ for i in range (0,len(DRLG_Rigs)):
                         All_Critical=df4[(df4['RIG_NO.']==DRLG_Rigs[i])]
                         All_Critical.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
                         T1=st.dataframe(All_Critical,use_container_width=True)
-                        st.write(f"Critical Points of Rig {RB1} ")
+                      
                        
 
             if (RB1==DRLG_Rigs[i]) and (Phases_Slider!="All"):                       
