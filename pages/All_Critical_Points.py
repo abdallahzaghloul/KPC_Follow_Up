@@ -106,7 +106,7 @@ if (Phases_Slider!="All"):
     Years=math.floor(Day_Count/365)
     Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
     Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0)
-  elif (Phases_Slider!="All") & Phases_Slider not in Rig_Phase:
+  elif  Phases_Slider not in Rig_Phase:
     st.write("There were no critical points @ {Phases_Slider}")
   
   V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
