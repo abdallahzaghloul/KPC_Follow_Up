@@ -144,7 +144,26 @@ for ii in range (0,len(WO_Rigs)):
                         All_Criticall.drop(['LOCATION','RIG_NO.','RIG_TYPE'],axis=1, inplace=True)
                         T1=st.dataframe(All_Criticall,use_container_width=True)                                    
 
-
+Rig_Phase_2=list(df4[(df4["RIG_NO."]==RB2)]['PHASE'])
+if (Phases_Sliderr!="All"):
+  if Phases_Sliderr in Rig_Phase_2:
+    st.write(f"Critical Points of Rig {RB2} ")
+    Day_Count=list(df6[(df6["RIG_NO."]==RB2)&(df6['PHASE']==Phases_Sliderr)]['DAYS_COUNT'])
+    Day_Count=float(Day_Count[0])
+    Years=math.floor(Day_Count/365)
+    Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
+    Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0) 
+    V=len(list(df4[(df4["RIG_NO."]==RB2)&(df4['PHASE']==Phases_Sliderr)]['PHASE']))
+    st.write(f"Total Points of Rig {RB2} @ {Phases_Sliderr}  = {V} Points")
+    st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
+  elif Phases_Sliderr not in Rig_Phase_2:
+    st.write(f"There were no registered points @ {Phases_Sliderr} or The Phase was not carried yet")
+    
+elif  (Phases_Sliderr=="All"):
+    st.write(f"Critical Points of Rig {RB2} ")
+    Day_Count=list(df6[(df6["RIG_NO."]==RB2)&(df6['PHASE']==Phases_Sliderr)]['DAYS_COUNT'])
+    V=len(list(df4[(df4["RIG_NO."]==RB2)]['PHASE']))
+    st.write(f"Total Points of Rig {RB2} = {V} Points")
 
 
 
