@@ -113,7 +113,8 @@ for i in range(0,len(Rigs)):
                         Critical = df3[df3['RIG_NO.']==Rigs[i]]
                         Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY','RIG_TYPE'],axis=1,inplace=True)
                         Critical=Critical.set_index('NO.')
-                        T1=st.dataframe(Critical,use_container_width=True)                                    
+                        T1=st.dataframe(Critical,use_container_width=True)    
+                        st.write(f"The total pojnts of Rig {RB1}={len(list(df1[df1["RIG_NO."]==RB1])}")
 
 
 
