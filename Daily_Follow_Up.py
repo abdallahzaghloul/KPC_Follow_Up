@@ -104,7 +104,7 @@ for i in range(0,len(Rigs)):
             if RB1==Rigs[i]:
                         S=Team[Team['RIG_NO.']==Rigs[i]]['TEAM_NO.']
                         S=tuple(S)
-                        st.write(f"Critical Points of Rig {Rigs[i]} ({S[0]}) ")
+                        st.write(f"Critical Points of Rig {Rigs[i]} ({S}) ")
                         Critical = df3[df3['RIG_NO.']==Rigs[i]]
                         Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY'],axis=1,inplace=True)
                         Critical=Critical.set_index('NO.')
