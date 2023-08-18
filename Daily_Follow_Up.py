@@ -79,7 +79,9 @@ Audit.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
 Audit=Audit.transpose()
 
 st.dataframe(Audit)
-st.write("Not mentioned teams are at home \n For more details you can check the plan")
+st.write("Not mentioned audit teams are at home")
+st.write("For more details you can check the plan")
+
 
 st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
             unsafe_allow_html=True)
@@ -88,6 +90,8 @@ st.markdown(" <right>  <h1> (II) Drops Survey </h1> </font> </right> </h1> ",
 Drops=df2
 Drops=Drops.transpose()
 st.dataframe(Drops)
+st.write("Not mentioned audit teams are at home")
+st.write("For more details you can check the plan")
 
 
 
