@@ -111,7 +111,7 @@ if (Phases_Slider!="All"):
     st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
     st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
   elif Phases_Slider not in Rig_Phase_1:
-    st.write("There were no registered points @ {Phases_Slider} or The Phase was not carried yet")
+    st.write(f"There were no registered points @ {Phases_Slider} or The Phase was not carried yet")
     
 elif  (Phases_Slider=="All"):
     st.write(f"Critical Points of Rig {RB1} ")
