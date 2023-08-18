@@ -100,7 +100,7 @@ for i in range (0,len(DRLG_Rigs)):
 st.write(f"Critical Points of Rig {RB1} ")
 if (Phases_Slider!="All"):
   Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
-  Day_Count=Day_Count[0]
+  Day_Count=float(Day_Count[0])
   Years=math.floor(Day_Count/365)
   Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
   Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0)
