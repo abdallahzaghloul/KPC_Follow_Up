@@ -100,9 +100,14 @@ for i in range (0,len(DRLG_Rigs)):
 st.write(f"Critical Points of Rig {RB1} ")
 if (Phases_Slider!="All"):
   Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
+  Day_Count=Day_Count[0]
+  Years=math.floor(Day_Count/365)
+  Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
+  Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0)
+  
   V=len(list(df4[(df4["RIG_NO."]==RB1)&(df4['PHASE']==Phases_Slider)]['PHASE']))
   st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
-  st.write(f"Days since open  =  Points")                    
+  st.write(f"Items were open since {Years} Years {Months} Months {Days} Days")                    
 elif  (Phases_Slider=="All"):
     Day_Count=list(df6[(df6["RIG_NO."]==RB1)&(df6['PHASE']==Phases_Slider)]['DAYS_COUNT'])
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
