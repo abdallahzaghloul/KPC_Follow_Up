@@ -27,12 +27,7 @@ df4.dropna(axis=0, inplace=True)
 df4['FINAL_STATUS']=df4['FINAL_\nSTATUS']
 df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
-df4['RIG_NO.']  = [i.replace(' ','_') for i in df4['RIG_NO.']]
-df4['RIG_NO.']  = [i.upper() for i in df4['RIG_NO.']]
-df4['PHASE']  = [i.replace(' ','_') for i in df4['PHASE']]
-df4['PHASE']  = [i.upper() for i in df4['PHASE']]
-df4['RIG_TYPE']  = [i.replace(' ','_') for i in df4['RIG_TYPE']]
-df4['RIG_TYPE']  = [i.upper() for i in df4['RIG_TYPE']]
+
 
 Omit_Rigs=tuple(df1['RIG_NO.'].unique())
 
@@ -77,9 +72,9 @@ df6.drop('TODAY_DATE',axis=1,inplace=True)
 df6['DATE']=df6['DATE'].dt.strftime('%d-%m-%Y')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].astype('str')
 df6['DAYS_COUNT']=df6['DAYS_COUNT'].str.split(' ').str[0]
-df6['RIG_NO.']  = [i.replace(' ','_') for i in df6['RIG_NO.']]
+df6['RIG_NO.']  = [i.replace(' ','') for i in df6['RIG_NO.']]
 df6['RIG_NO.']  = [i.upper() for i in df6['RIG_NO.']]
-df6['PHASE']  = [i.replace(' ','_') for i in df6['PHASE']]
+df6['PHASE']  = [i.replace(' ','') for i in df6['PHASE']]
 df6['PHASE']  = [i.upper() for i in df6['PHASE']]
 
 
