@@ -39,6 +39,7 @@ df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%']+"%"
 df2 = pd.read_excel(File,'Drops_Teams_Follow_Up')
 df2.columns  = [i.replace(' ','_') for i in df2.columns]
 df2.columns  = [i.upper() for i in df2.columns]
+df2.dropna (axis=0, inplace=True)
 df2['LAST_VISIT']=df2['LAST_VISIT'].astype(str)
 df2['LAST_VISIT']=df2['LAST_VISIT'].str.split(' ').str[0]
 df2["LAST_VISIT"]= pd.to_datetime(df2["LAST_VISIT"])
