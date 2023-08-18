@@ -1,7 +1,7 @@
 #Tog1 = st.selectbox("Desired Model Selection ",(' A1', ' A6', ' A4', ' A3' ,' Q3', ' Q5', ' A5' ,' S4', ' Q2', ' A7', ' TT', ' Q7',' RS6' ,' RS3', ' A8' ,' Q8' ,' RS4', ' RS5' ,' R8', ' SQ5', ' S8', ' SQ7', ' S3',' S5' ,' A2', ' RS7'))
 #Y=st.slider('Select the year you are interested in',1997,2020)
 
-
+import math
 from PIL import Image
 import streamlit as st
 import numpy as np #1
