@@ -29,8 +29,8 @@ df4.drop(['PRIORITY','REF.','FINAL_\nSTATUS'],axis=1, inplace=True)
 
 df4['RIG_NO.']  = [i.replace(' ','_') for i in df4['RIG_NO.']]
 df4['RIG_NO.']  = [i.upper() for i in df4['RIG_NO.']]
-df6['PHASE']  = [i.replace(' ','_') for i in df4['PHASE']]
-df6['PHASE']  = [i.upper() for i in df4['PHASE']]
+df4['PHASE']  = [i.replace(' ','_') for i in df4['PHASE']]
+df4['PHASE']  = [i.upper() for i in df4['PHASE']]
 df4['RIG_TYPE']  = [i.replace(' ','_') for i in df4['RIG_TYPE']]
 df4['RIG_TYPE']  = [i.upper() for i in df4['RIG_TYPE']]
 
