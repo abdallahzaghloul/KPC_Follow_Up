@@ -91,7 +91,7 @@ st.image(image)
 
 if Alert==1:
             st.markdown( image
-    'This will print <span style="color:#ff0000"> blue text </span>',unsafe_allow_html=True)
+    'This will print <span style="color:blue;"> blue text </span>',unsafe_allow_html=True)
 
 
 
