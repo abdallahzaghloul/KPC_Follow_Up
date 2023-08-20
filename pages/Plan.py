@@ -49,14 +49,48 @@ RB1=st.radio("What is Team's Plan ",["Previously", "Now", "Next"])
 
 if RB1 == "Previously":
             Audit_Previous =  Audit[Audit['JOB_STATE']==-1]
-            Audit_Previous.drop(["JOB_STATE","AUDIT/DROPS"], axis= 1 , inplace= True)
+            Audit_Previous.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
 #           Audit_Previous=Audit_Previous.transpose()
             st.dataframe(Audit_Previous,use_container_width=True) 
 
-            
+elif RB1 == "Now":
+            Audit_Now =  Audit[Audit['JOB_STATE']==0]
+            Audit_Now.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
+#           Audit_Now=Audit_Now.transpose()
+            st.dataframe(Audit_Now,use_container_width=True)             
 
 
+elif RB1 == "Next":
+            Audit_Next =  Audit[Audit['JOB_STATE']==1]
+            Audit_Next.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
+#           Audit_Next=Audit_Next.transpose()
+            st.dataframe(Audit_Next,use_container_width=True)
 
+  
+st.markdown(" <center>  <h1> Drops Team Tracking </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
+
+RB2=st.radio("What is Team's Plan ",["Previously", "Now", "Next"])
+
+
+if RB2 == "Previously":
+            Drops_Previous =  Drops[Drops['JOB_STATE']==-1]
+            Drops_Previous.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
+#           Drops_Previous=Drops_Previous.transpose()
+            st.dataframe(Audit_Previous,use_container_width=True) 
+
+elif RB2 == "Now":
+            Drops_Now =   Drops[Drops['JOB_STATE']==0]
+            Drops_Now.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
+#           Drops_Now=Drops_Now.transpose()
+            st.dataframe(Audit_Now,use_container_width=True)             
+
+
+elif RB2 == "Next":
+            Drops_Next =  Drops[Drops['JOB_STATE']==1]
+            Drops_Next.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
+#           Drops_Next=Drops_Next.transpose()
+            st.dataframe(Audit_Next,use_container_width=True)
 
   
 
