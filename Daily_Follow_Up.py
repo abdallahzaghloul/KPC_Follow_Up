@@ -111,7 +111,9 @@ if Alert==1:
   col2.image(imagee)
   col3.write("    ")
   st.markdown('<center> <h1> <span style="color:red;"> Incident Investigation </span></h1> </font> </center> </h1>',unsafe_allow_html=True)
+  Invo.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
   Invo=Invo.transpose()
+  
   st.dataframe(Invo,use_container_width=True) 
 
 
