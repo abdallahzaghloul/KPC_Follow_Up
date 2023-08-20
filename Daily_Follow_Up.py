@@ -97,8 +97,6 @@ if Alert==1:
   imm = Image.open("Alert.jpg")
   imagee = np.array(imm)
   col2.image(imagee)
-  
-  with col3:
   col3.write("    ")
 st.markdown(' <span style="color:red;"> Incident Investigation </span>',unsafe_allow_html=True)
  
