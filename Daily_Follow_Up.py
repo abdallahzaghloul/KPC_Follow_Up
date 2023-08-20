@@ -23,6 +23,12 @@ df1['RIG_NO.']  = [i.upper() for i in df1['RIG_NO.']]
 df1['JOB_TYPE']  = [i.replace(' ','') for i in df1['JOB_TYPE']]
 df1['JOB_TYPE']  = [i.upper() for i in df1['JOB_TYPE']]
 
+Inv="INCIDIENT_INVESTIGATION"
+Alert=0
+Z=pd.DataFrame()
+if Inv in df1["JOB_TYPE"].unique():
+  Alert=1
+  df1.drop(df1[df1["JOB_TYPE"]==Inv].index, axis=0, inplace=True)
 
 df1['TODAY_DATE']=datetime.date.today()
 df1['STARTING_DATE']=df1['STARTING_DATE'].astype(str)
@@ -82,6 +88,12 @@ Rigs=tuple(Rigs)
 
 
 st.image(image)
+
+if Alert=1:
+            st.markdown(" <center> <h1> style="color:#33ff33, Incident Investigation Progress </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
+
+
 
 
 st.markdown(" <center>  <h1> Daily Follow Up </h1> </font> </center> </h1> ",
