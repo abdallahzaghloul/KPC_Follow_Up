@@ -43,8 +43,8 @@ df1.SPENT_DAYS=df1.SPENT_DAYS.astype(str)+"/"+df1.JOB_DAYS.astype(str)
 df1['STARTING_DATE']=df1['STARTING_DATE'].dt.strftime('%d-%m-%Y')
 df1['TODAY_DATE']=df1['TODAY_DATE'].dt.strftime('%d-%m-%Y')
 df1=df1.set_index('TEAM_NO.')
-df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%'].astype(str)
-df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%']+"%"
+#df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%'].astype(str)
+#df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%']+"%"
 if Inv in df1["JOB_TYPE"].unique():
   Alert=1
   Invo=df1[df1["JOB_TYPE"]==Inv]
