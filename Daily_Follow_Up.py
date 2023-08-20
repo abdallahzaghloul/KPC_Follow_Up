@@ -16,13 +16,14 @@ image = np.array(im)
 df1 = pd.read_excel(File,'Audit_Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
+df1.dropna(axis=0, inplace=True)
+
 df1['RIG_NO.']  = [i.replace(' ','') for i in df1['RIG_NO.']]
 df1['RIG_NO.']  = [i.upper() for i in df1['RIG_NO.']]
 df1['JOB_TYPE']  = [i.replace(' ','') for i in df1['JOB_TYPE']]
 df1['JOB_TYPE']  = [i.upper() for i in df1['JOB_TYPE']]
 
 
-df1.dropna(axis=0, inplace=True)
 df1['TODAY_DATE']=datetime.date.today()
 df1['STARTING_DATE']=df1['STARTING_DATE'].astype(str)
 df1['STARTING_DATE']=df1['STARTING_DATE'].str.split(' ').str[0]
@@ -45,10 +46,11 @@ df1['CRITICAL_CLOSURE_%']=df1['CRITICAL_CLOSURE_%']+"%"
 df2 = pd.read_excel(File,'Drops_Teams_Follow_Up')
 df2.columns  = [i.replace(' ','_') for i in df2.columns]
 df2.columns  = [i.upper() for i in df2.columns]
+df2.dropna (axis=0, inplace=True)
 df2['RIG_NO.']  = [i.replace(' ','') for i in df2['RIG_NO.']]
 df2['RIG_NO.']  = [i.upper() for i in df2['RIG_NO.']]
 
-df2.dropna (axis=0, inplace=True)
+
 df2['LAST_VISIT']=df2['LAST_VISIT'].astype(str)
 df2['LAST_VISIT']=df2['LAST_VISIT'].str.split(' ').str[0]
 df2["LAST_VISIT"]= pd.to_datetime(df2["LAST_VISIT"])
