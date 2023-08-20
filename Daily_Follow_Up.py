@@ -67,6 +67,13 @@ df3 = pd.read_excel(File,'All_Critical_Points')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
 df3.columns  = [i.upper() for i in df3.columns]
 df3.dropna(axis=0, inplace=True)
+
+df3['RIG_NO.']  = [i.replace(' ','') for i in df3['RIG_NO.']]
+df3['RIG_NO.']  = [i.upper() for i in df3['RIG_NO.']]
+df3['PHASE']  = [i.replace(' ','') for i in df3['PHASE']]
+df3['PHASE']  = [i.upper() for i in df3['PHASE']]
+
+
 df3['FINAL_STATUS']=df3['FINAL_\nSTATUS'].str.upper()
 df3.drop('FINAL_\nSTATUS',axis=1, inplace=True)
 Rigs=df1['RIG_NO.'].unique()
