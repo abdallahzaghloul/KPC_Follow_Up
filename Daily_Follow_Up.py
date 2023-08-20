@@ -90,7 +90,7 @@ Rigs=tuple(Rigs)
 st.image(image)
 
 if Alert==1:
-  col1, col2, col3 = st.beta_columns([1,6,1])
+  col1, col2, col3 = st.columns(3)
 
   col1.write("    ")
   
