@@ -47,7 +47,7 @@ RB1=st.radio("What is Team's Plan ",["Previously", "Now", "Next"])
 if RB1 == "Previously":
             Audit_Previous =  df7[df7['JOB_STATE']==-1]
             Audit_Previous.drop(["JOB_STATE","AUDIT/DROPS"], axis= 1 , inplace= True)
-#            Audit_Previous=Audit_Previous.transpose()
+#           Audit_Previous=Audit_Previous.transpose()
             st.dataframe(Audit_Previous,use_container_width=True) 
 
             
