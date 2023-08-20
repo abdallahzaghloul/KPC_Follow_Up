@@ -26,6 +26,8 @@ df7['DAYS_COUNT'] = df7['DEPARTURE_DATE']-df7['ARRIVAL_DATE']
 
 df7['ARRIVAL_DATE']=df7['ARRIVAL_DATE'].dt.strftime('%d-%m-%Y')
 df7['DEPARTURE_DATE']=df7['DEPARTURE_DATE'].dt.strftime('%d-%m-%Y')
+df7['DEPARTURE_DATE']=df7['DEPARTURE_DATE'].astype('str')
+df7['ARRIVAL_DATE']=df7['ARRIVAL_DATE'].astype('str')
 
 
 df7.set_index('TEAM_NO.',  inplace=True)
