@@ -77,20 +77,20 @@ if RB2 == "Previously":
             Drops_Previous =  Drops[Drops['JOB_STATE']==-1]
             Drops_Previous.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
 #           Drops_Previous=Drops_Previous.transpose()
-            st.dataframe(Audit_Previous,use_container_width=True) 
+            st.dataframe(Drops_Previous,use_container_width=True) 
 
 elif RB2 == "Now":
             Drops_Now =   Drops[Drops['JOB_STATE']==0]
             Drops_Now.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
 #           Drops_Now=Drops_Now.transpose()
-            st.dataframe(Audit_Now,use_container_width=True)             
+            st.dataframe(Drops_Now,use_container_width=True)             
 
 
 elif RB2 == "Next":
             Drops_Next =  Drops[Drops['JOB_STATE']==1]
             Drops_Next.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
 #           Drops_Next=Drops_Next.transpose()
-            st.dataframe(Audit_Next,use_container_width=True)
+            st.dataframe(Drops_Next,use_container_width=True)
 
   
 
