@@ -98,7 +98,7 @@ if Alert==1:
   imagee = np.array(imm)
   col2.image(imagee)
   col3.write("    ")
-st.markdown(' <span style="color:red;"> Incident Investigation </span>',unsafe_allow_html=True)
+st.markdown('<center> <h1> <span style="color:red;"> Incident Investigation </span></h1> </font> </center> </h1>',unsafe_allow_html=True)
  
 
 
