@@ -164,7 +164,7 @@ for i in range(0,len(Rigs)):
                         T1=st.dataframe(Critical,use_container_width=True)
                         J=len(list(df3[df3["RIG_NO."]=="EDC-62"]))
                         st.write(f"The total points of Rig {RB1}={J}")
-                        st.write(f" Recent Points of {RB1} at ")
+                        st.write(f" Recent Points of {RB1} at {df3[df3['RIG_NO.']==RB1]['JOB_TYPE']} ")
 
 
 
