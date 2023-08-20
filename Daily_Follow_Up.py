@@ -23,7 +23,7 @@ df1['RIG_NO.']  = [i.upper() for i in df1['RIG_NO.']]
 df1['JOB_TYPE']  = [i.replace(' ','') for i in df1['JOB_TYPE']]
 df1['JOB_TYPE']  = [i.upper() for i in df1['JOB_TYPE']]
 
-Inv="INCIDIENT_INVESTIGATION"
+Inv="INCIDENT_INVESTIGATION"
 Alert=0
 Z=pd.DataFrame()
 if Inv in df1["JOB_TYPE"].unique():
