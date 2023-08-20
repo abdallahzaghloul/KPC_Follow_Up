@@ -93,7 +93,7 @@ if Alert==1:
   col1, col2, col3 = st.beta_columns([1,6,1])
 
   with col1:
-  st.write("")
+  st.write("    ")
   
   with col2:
   imm = Image.open("Alert.jpg")
@@ -101,7 +101,7 @@ if Alert==1:
   st.image(imagee)
   
   with col3:
-  st.write("")
+  st.write("    ")
   st.markdown('This will print <span style="color:red;"> blue text </span>',unsafe_allow_html=True)
 
 
