@@ -92,18 +92,16 @@ st.image(image)
 if Alert==1:
   col1, col2, col3 = st.beta_columns([1,6,1])
 
-  with col1:
-  st.write("    ")
+  col1.write("    ")
   
-  with col2:
   imm = Image.open("Alert.jpg")
   imagee = np.array(imm)
-  st.image(imagee)
+  col2.image(imagee)
   
   with col3:
-  st.write("    ")
-  st.markdown('This will print <span style="color:red;"> blue text </span>',unsafe_allow_html=True)
-
+  col3.write("    ")
+st.markdown(' <span style="color:red;"> Incident Investigation </span>',unsafe_allow_html=True)
+ 
 
 
 
