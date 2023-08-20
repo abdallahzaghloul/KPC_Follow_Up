@@ -90,8 +90,8 @@ Rigs=tuple(Rigs)
 st.image(image)
 
 if Alert==1:
-            st.markdown(" <center> <h1> style="color:#33ff33 Incident Investigation Progress </h1> </font> </center> </h1> ",
-            unsafe_allow_html=True)
+            st.markdown(
+    'This will print <span style="color:blue;"> blue text </span>',unsafe_allow_html=True
 
 
 
