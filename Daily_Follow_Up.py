@@ -16,6 +16,12 @@ image = np.array(im)
 df1 = pd.read_excel(File,'Audit_Teams_Follow_Up')
 df1.columns  = [i.replace(' ','_') for i in df1.columns]
 df1.columns  = [i.upper() for i in df1.columns]
+df1['RIG_NO.']  = [i.replace(' ','') for i in df1['RIG_NO.']]
+df1['RIG_NO.']  = [i.upper() for i in df1['RIG_NO.']]
+df1['JOB_TYPE']  = [i.replace(' ','') for i in df1['JOB_TYPE']]
+df1['JOB_TYPE']  = [i.upper() for i in df1['JOB_TYPE']]
+
+
 df1.dropna(axis=0, inplace=True)
 df1['TODAY_DATE']=datetime.date.today()
 df1['STARTING_DATE']=df1['STARTING_DATE'].astype(str)
