@@ -162,7 +162,7 @@ for i in range(0,len(Rigs)):
                         Critical.drop(['RIG_NO.','LOCATION','REF.','PRIORITY','RIG_TYPE'],axis=1,inplace=True)
                         Critical=Critical.set_index('NO.')
                         T1=st.dataframe(Critical,use_container_width=True)    
-                        st.write(f"The total points of Rig {RB1}={len(list(df3[df3["RIG_NO."]==RB1]))}")
+                        st.write(f"The total points of Rig {RB1}=")
                         st.write(f" Recent Points of {RB1} at {tuple(df3[df3["RIG_NO."]==RB1]['JOB_TYPE'])}={len(list(df3[df3["RIG_NO."]==RB1]))}")
 
 
