@@ -28,6 +28,7 @@ Alert=0
 Z=pd.DataFrame()
 if Inv in df1["JOB_TYPE"].unique():
   Alert=1
+  Invo=df1[df1["JOB_TYPE"]==Inv]
   df1.drop(df1[df1["JOB_TYPE"]==Inv].index, axis=0, inplace=True)
 
 df1['TODAY_DATE']=datetime.date.today()
@@ -89,6 +90,16 @@ Rigs=tuple(Rigs)
 
 st.image(image)
 
+ 
+
+
+
+st.markdown(" <center>  <h1> Daily Follow Up </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
+
+
+
+
 if Alert==1:
   col1, col2, col3 = st.columns(3)
 
@@ -98,13 +109,9 @@ if Alert==1:
   imagee = np.array(imm)
   col2.image(imagee)
   col3.write("    ")
-st.markdown('<center> <h1> <span style="color:red;"> Incident Investigation </span></h1> </font> </center> </h1>',unsafe_allow_html=True)
- 
+  st.markdown('<center> <h1> <span style="color:red;"> Incident Investigation </span></h1> </font> </center> </h1>',unsafe_allow_html=True)
+  st.dataframe(Invo,use_container_width=True) 
 
-
-
-st.markdown(" <center>  <h1> Daily Follow Up </h1> </font> </center> </h1> ",
-            unsafe_allow_html=True)
 
 
 
