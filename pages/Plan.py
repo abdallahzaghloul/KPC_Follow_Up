@@ -44,7 +44,7 @@ st.image(image)
 st.markdown(" <center>  <h1> Audit Team Tracking </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
-RB1=st.radio("What is Team's Plan ",["Previously", "Now", "Next"])
+RB1=st.radio("What is Audit Team's Plan ",["Previously", "Now", "Next"])
 
 
 if RB1 == "Previously":
@@ -70,7 +70,7 @@ elif RB1 == "Next":
 st.markdown(" <center>  <h1> Drops Team Tracking </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
-RB2=st.radio("What is Team's Plan ",["Previously", "Now", "Next"])
+RB2=st.radio("What is Drops Team's Plan ",["Previously", "Now", "Next"])
 
 
 if RB2 == "Previously":
