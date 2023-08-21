@@ -38,7 +38,7 @@ RB1_list=list(Audit['TEAM_NO.'].unique())
 RB1=st.radio("What is Audit Team's Plan ",RB1_list)
 
 
-for i in range (0,len(RB_list)):
+for i in range (0,len(RB1_list)):
             if RB1 == RB1_list[i]:
                         Audit_Team =  Audit[Audit['TEAM_NO.']==RB1]
                         Audit_Team.reset_index(inplace=True)
@@ -51,7 +51,7 @@ RB2_list=list(Drops['TEAM_NO.'].unique())
 RB2=st.radio("What is Drops Team's Plan ",RB2_list)
 
 
-for i in range (0,len(RB_list)):
+for i in range (0,len(RB2_list)):
             if RB2 == RB2_list[i]:
                         Drops_Team =  Drops[Drops['TEAM_NO.']==RB2]
                         Drops_Team.reset_index(inplace=True)
