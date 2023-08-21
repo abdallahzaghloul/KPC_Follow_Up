@@ -18,6 +18,8 @@ df7.dropna(axis=0, inplace=True)
 
 df7["RIG_NO."]  = [i.replace(' ','') for i in df7["RIG_NO."]]
 df7["JOB_TYPE"]  = [i.upper() for i in df7["JOB_TYPE"]]
+df7["EXPECTED_DATE"]= pd.to_datetime(df7["EXPECTED_DATE"])
+df7['EXPECTED_DATE']=df7['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
 
 Audit = df7[df7['AUDIT/DROPS']=="Audit"]
 Drops = df7[df7['AUDIT/DROPS']=="Drops"]
