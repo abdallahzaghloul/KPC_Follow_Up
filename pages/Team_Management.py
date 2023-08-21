@@ -36,58 +36,17 @@ st.image(image)
 
 st.markdown(" <center>  <h1> Audit Team Tracking </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-
-RB1=st.radio("What is Audit Team's Plan ",["Previously", "Now", "Next"])
-
-
-if RB1 == "Previously":
-            Audit_Previous =  Audit[Audit['JOB_STATE']==-1]
-            Audit_Previous.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Audit_Previous=Audit_Previous.transpose()
-            st.dataframe(Audit_Previous,use_container_width=True) 
-
-elif RB1 == "Now":
-            Audit_Now =  Audit[Audit['JOB_STATE']==0]
-            Audit_Now.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Audit_Now=Audit_Now.transpose()
-            st.dataframe(Audit_Now,use_container_width=True)             
+RB_list=list(Audit['TEAM_NO.'].unique())
+RB1=st.radio("What is Audit Team's Plan ",RB_list)
 
 
-elif RB1 == "Next":
-            Audit_Next =  Audit[Audit['JOB_STATE']==1]
-            Audit_Next.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Audit_Next=Audit_Next.transpose()
-            st.dataframe(Audit_Next,use_container_width=True)
+for i in range (0,len(RB_list)):
+            if RB1 == RB_list[i]:
+                        Audit_Team =  Audit[Audit['TEAM_NO.']==RB1]
+                        st.dataframe(Audit_Team,use_container_width=True) 
+
 
   
-st.markdown(" <center>  <h1> Drops Team Tracking </h1> </font> </center> </h1> ",
-            unsafe_allow_html=True)
-
-RB2=st.radio("What is Drops Team's Plan ",["Previously", "Now", "Next"])
-
-
-if RB2 == "Previously":
-            Drops_Previous =  Drops[Drops['JOB_STATE']==-1]
-            Drops_Previous.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Drops_Previous=Drops_Previous.transpose()
-            st.dataframe(Drops_Previous,use_container_width=True) 
-
-elif RB2 == "Now":
-            Drops_Now =   Drops[Drops['JOB_STATE']==0]
-            Drops_Now.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Drops_Now=Drops_Now.transpose()
-            st.dataframe(Drops_Now,use_container_width=True)             
-
-
-elif RB2 == "Next":
-            Drops_Next =  Drops[Drops['JOB_STATE']==1]
-            Drops_Next.drop(["JOB_STATE","AUDIT/DROPS","index"], axis= 1 , inplace= True)
-#           Drops_Next=Drops_Next.transpose()
-            st.dataframe(Drops_Next,use_container_width=True)
-
-  
-
-
 
 
 # streamlit run "C:\\Users\\hp\\Desktop\\Data Science\\Mid-Project\\Data_Visulaization_Project_Files\\Mid_Project_Visualization_Streamlit.py"
