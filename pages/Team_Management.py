@@ -16,19 +16,12 @@ df7.columns  = [i.replace(' ','_') for i in df7.columns]
 df7.columns  = [i.upper() for i in df7.columns]
 df7.dropna(axis=0, inplace=True)
 
-df7["AUDIT/DROPS"]  = [i.replace(' ','') for i in df7["AUDIT/DROPS"]]
-df7["AUDIT/DROPS"]  = [i.upper() for i in df7["AUDIT/DROPS"]]
-df7["RIG"]  = [i.replace(' ','') for i in df7["RIG"]]
-df7["RIG"]  = [i.upper() for i in df7["RIG"]]
-df7["ARRIVAL_DATE"]= pd.to_datetime(df7["ARRIVAL_DATE"])
-df7["DEPARTURE_DATE"]= pd.to_datetime(df7["DEPARTURE_DATE"])
-df7['DAYS_COUNT'] = df7['DEPARTURE_DATE']-df7['ARRIVAL_DATE']
+df7["RIG_NO."]  = [i.replace(' ','') for i in df7["RIG_NO."]]
+df7["JOB_TYPE"]  = [i.upper() for i in df7["JOB_TYPE"]]
 
-df7['ARRIVAL_DATE']=df7['ARRIVAL_DATE'].dt.strftime('%d-%m-%Y')
-df7['DEPARTURE_DATE']=df7['DEPARTURE_DATE'].dt.strftime('%d-%m-%Y')
-df7['DEPARTURE_DATE']=df7['DEPARTURE_DATE'].astype('str')
-df7['ARRIVAL_DATE']=df7['ARRIVAL_DATE'].astype('str')
-df7['DAYS_COUNT']=df7['DAYS_COUNT'].astype('str')
+
+
+
 
 df7.reset_index(inplace=True)
 df7.set_index('TEAM_NO.',  inplace=True)
