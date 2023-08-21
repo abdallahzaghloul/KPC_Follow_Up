@@ -137,7 +137,7 @@ if (Phases_Slider!="ALL"):
 elif  (Phases_Slider=="ALL"):
             if "No Critical" in  Rig_Phase_1:
                         st.write(f"There were no registered points @ All ")   
-             else:
+            elif "No Critical" not in  Rig_Phase_1::
                          st.write(f"Critical Points of Rig {RB1} ")
                          V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
                          st.write(f"Total Points of Rig {RB1} = {V} Points")
