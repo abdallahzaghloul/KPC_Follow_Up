@@ -11,7 +11,7 @@ File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
 ######################## df7 #############################################################
-df7 = pd.read_excel(File,'Plan')
+df7 = pd.read_excel(File,'Team_Management')
 df7.columns  = [i.replace(' ','_') for i in df7.columns]
 df7.columns  = [i.upper() for i in df7.columns]
 df7.dropna(axis=0, inplace=True)
