@@ -21,6 +21,9 @@ df7["JOB_TYPE"]  = [i.upper() for i in df7["JOB_TYPE"]]
 df7["EXPECTED_DATE"]= pd.to_datetime(df7["EXPECTED_DATE"])
 df7['EXPECTED_DATE']=df7['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
 
+df7['RIG_ORDER']=df7['RIG_ORDER'].astype('str')
+
+df7['RIG_ORDER']="Rig_"&df7['RIG_ORDER']
 Audit = df7[df7['AUDIT/DROPS']=="Audit"]
 Drops = df7[df7['AUDIT/DROPS']=="Drops"]
 
