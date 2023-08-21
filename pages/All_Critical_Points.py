@@ -133,7 +133,7 @@ if (Phases_Slider!="ALL"):
     st.write(f"Total Points of Rig {RB1} @ {Phases_Slider}  = {V} Points")
     st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")  
   elif Phases_Slider not in Rig_Phase_1:
-    st.write(f"There were no registered points @ {Phases_Sliderr} ")            
+    st.write(f"There were no registered points @ {Phases_Slider} ")            
 elif  (Phases_Slider=="ALL"):
     st.write(f"Critical Points of Rig {RB1} ")
     V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
