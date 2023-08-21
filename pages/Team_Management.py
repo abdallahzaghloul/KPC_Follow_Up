@@ -36,7 +36,7 @@ RB1=st.radio("What is Audit Team's Plan ",RB_list)
 for i in range (0,len(RB_list)):
             if RB1 == RB_list[i]:
                         Audit_Team =  Audit[Audit['TEAM_NO.']==RB1]
-                        Audit_Team.drop(['TEAM_NO.','AUDIT_DROPS'], axis=1, inplace=True)
+                        Audit_Team.drop(['TEAM_NO.','AUDIT/DROPS'], axis=1, inplace=True)
                         Audit_Team.reset_index(inplace=True)
                         st.dataframe(Audit_Team,use_container_width=True) 
 
