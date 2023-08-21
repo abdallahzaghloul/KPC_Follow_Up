@@ -233,11 +233,13 @@ if (Phases_Sliderrr!="ALL"):
   elif Phases_Sliderrr not in Rig_Phase_3:
     st.write(f"There were no registered points @ {Phases_Sliderrr}")
     
-elif  (Phases_Sliderr=="ALL"):
-    st.write(f"Critical Points of Rig {RB3} ")
-    VVV=len(list(df4[(df4["RIG_NO."]==RB3)]['PHASE']))        
-    st.write(f"Total Points of Rig {RB3} = {VVV} Points")
-
+elif  (Phases_Sliderrr=="ALL"):
+            if list(df4[(df4["RIG_NO."]==RB3)]['PHASE'])==["NOCRITICAL"]:
+                        st.write(f"There were no registered points @ All ")   
+            elif list(df4[df4["RIG_NO."]==RB3]['PHASE'])!=["NOCRITICAL"] :
+                        st.write(f"Critical Points of Rig {RB3} ")
+                        VVV=len(list(df4[(df4["RIG_NO."]==RB3)]['PHASE']))
+                        st.write(f"Total Points of Rig {RB3} = {VVV} Points")
 
 
 
