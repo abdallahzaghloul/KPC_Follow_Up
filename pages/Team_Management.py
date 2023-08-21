@@ -19,13 +19,6 @@ df7.dropna(axis=0, inplace=True)
 df7["RIG_NO."]  = [i.replace(' ','') for i in df7["RIG_NO."]]
 df7["JOB_TYPE"]  = [i.upper() for i in df7["JOB_TYPE"]]
 
-
-
-
-
-df7.reset_index(inplace=True)
-df7.set_index('TEAM_NO.',  inplace=True)
-
 Audit = df7[df7['AUDIT/DROPS']=="Audit"]
 Drops = df7[df7['AUDIT/DROPS']=="Drops"]
 
