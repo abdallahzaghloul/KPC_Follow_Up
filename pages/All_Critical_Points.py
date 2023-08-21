@@ -141,7 +141,7 @@ elif  (Phases_Slider=="ALL"):
                          st.write(f"Critical Points of Rig {RB1} ")
                          V=len(list(df4[(df4["RIG_NO."]==RB1)]['PHASE']))
                          st.write(f"Total Points of Rig {RB1} = {V} Points")
-
+st.write(f"The Carried on Phases{list((df6[df6['RIG_NO.']==RB1]['PHASE']).unique())}")
   
   
 
@@ -192,7 +192,7 @@ elif  (Phases_Sliderr=="ALL"):
                         VV=len(list(df4[(df4["RIG_NO."]==RB2)]['PHASE']))
                         st.write(f"Total Points of Rig {RB2} = {VV} Points")
 
-
+st.write(f"The Carried on Phases{list((df6[df6['RIG_NO.']==RB2]['PHASE']).unique())}")
 
 st.markdown(" <center>  <h1> PU Open/In Progress Critical Points </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
@@ -241,6 +241,7 @@ elif  (Phases_Sliderrr=="ALL"):
                         VVV=len(list(df4[(df4["RIG_NO."]==RB3)]['PHASE']))
                         st.write(f"Total Points of Rig {RB3} = {VVV} Points")
 
+st.write(f"The Carried on Phases{list((df6[df6['RIG_NO.']==RB3]['PHASE']).unique())}")
 
 
 
