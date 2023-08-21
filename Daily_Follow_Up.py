@@ -112,6 +112,7 @@ if Alert==1:
   col3.write("    ")
   st.markdown('<center> <h1> <span style="color:red;"> Incident Investigation </span></h1> </font> </center> </h1>',unsafe_allow_html=True)
   Invo.drop(['TODAY_DATE','JOB_DAYS','index'], axis=1, inplace=True)
+  Invo['SPENT_DAYS'] =Invo['SPENT_DAYS'].str.split('/').str[0] 
   Invo=Invo.transpose()
   
   st.dataframe(Invo,use_container_width=True) 
