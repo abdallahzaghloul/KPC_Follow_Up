@@ -34,17 +34,29 @@ st.image(image)
 
 st.markdown(" <center>  <h1> Audit Team Tracking </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
-RB_list=list(Audit['TEAM_NO.'].unique())
-RB1=st.radio("What is Audit Team's Plan ",RB_list)
+RB1_list=list(Audit['TEAM_NO.'].unique())
+RB1=st.radio("What is Audit Team's Plan ",RB1_list)
 
 
 for i in range (0,len(RB_list)):
-            if RB1 == RB_list[i]:
+            if RB1 == RB1_list[i]:
                         Audit_Team =  Audit[Audit['TEAM_NO.']==RB1]
                         Audit_Team.reset_index(inplace=True)
                         Audit_Team.drop(['TEAM_NO.','AUDIT/DROPS','index'], axis=1, inplace=True)
                         st.dataframe(Audit_Team,use_container_width=True) 
 
+st.markdown(" <center>  <h1> Drops Team Tracking </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
+RB2_list=list(Drops['TEAM_NO.'].unique())
+RB2=st.radio("What is Drops Team's Plan ",RB2_list)
+
+
+for i in range (0,len(RB_list)):
+            if RB2 == RB2_list[i]:
+                        Drops_Team =  Drops[Drops['TEAM_NO.']==RB2]
+                        Drops_Team.reset_index(inplace=True)
+                        Drops_Team.drop(['TEAM_NO.','AUDIT/DROPS','index'], axis=1, inplace=True)
+                        st.dataframe(Drops_Team,use_container_width=True) 
 
   
 
