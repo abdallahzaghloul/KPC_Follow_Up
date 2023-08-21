@@ -175,16 +175,16 @@ if (Phases_Sliderr!="ALL"):
     Years=math.floor(Day_Count/365)
     Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
     Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0) 
-    V=len(list(df4[(df4["RIG_NO."]==RB2)&(df4['PHASE']==Phases_Sliderr)]['PHASE']))
-    st.write(f"Total Points of Rig {RB2} @ {Phases_Sliderr}  = {V} Points")
+    VV=len(list(df4[(df4["RIG_NO."]==RB2)&(df4['PHASE']==Phases_Sliderr)]['PHASE']))
+    st.write(f"Total Points of Rig {RB2} @ {Phases_Sliderr}  = {VV} Points")
     st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
   elif Phases_Sliderr not in Rig_Phase_2:
     st.write(f"There were no registered points @ {Phases_Sliderr} ")
     
-elif  (Phases_Sliderr=="All"):
+elif  (Phases_Sliderr=="ALL"):
     st.write(f"Critical Points of Rig {RB2} ")
-    V=len(list(df4[(df4["RIG_NO."]==RB2)]['PHASE']))
-    st.write(f"Total Points of Rig {RB2} = {V} Points")
+    VV=len(list(df4[(df4["RIG_NO."]==RB2)]['PHASE']))
+    st.write(f"Total Points of Rig {RB2} = {VV} Points")
 
 
 
@@ -221,16 +221,16 @@ if (Phases_Sliderrr!="ALL"):
     Years=math.floor(Day_Count/365)
     Months=math.floor(12*(np. remainder(Day_Count/365,1))) 
     Days=round (30*(np. remainder(12*(np. remainder(Day_Count/365,1)),1)),0) 
-    V=len(list(df4[(df4["RIG_NO."]==RB3)&(df4['PHASE']==Phases_Sliderrr)]['PHASE']))
-    st.write(f"Total Points of Rig {RB3} @ {Phases_Sliderrr}  = {V} Points")
+    VVV=len(list(df4[(df4["RIG_NO."]==RB3)&(df4['PHASE']==Phases_Sliderrr)]['PHASE']))
+    st.write(f"Total Points of Rig {RB3} @ {Phases_Sliderrr}  = {VVV} Points")
     st.write(f"These points were open since {Years} Years {Months} Months {Days} Days")
   elif Phases_Sliderrr not in Rig_Phase_3:
     st.write(f"There were no registered points @ {Phases_Sliderrr}")
     
-elif  (Phases_Sliderr=="All"):
+elif  (Phases_Sliderr=="ALL"):
     st.write(f"Critical Points of Rig {RB3} ")
-    V=len(list(df4[(df4["RIG_NO."]==RB3)]['PHASE']))
-    st.write(f"Total Points of Rig {RB3} = {V} Points")
+    VVV=len(list(df4[(df4["RIG_NO."]==RB3)]['PHASE']))
+    st.write(f"Total Points of Rig {RB3} = {VVV} Points")
 
 
 
