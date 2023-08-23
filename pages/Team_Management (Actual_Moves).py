@@ -10,32 +10,32 @@ import datetime
 File="Client_EPIS_Daily_Progress.xlsx"
 im = Image.open("EPIS.png")
 image = np.array(im)
-######################## df7 #############################################################
-df7 = pd.read_excel(File,'Plan')
-df7.columns  = [i.replace(' ','_') for i in df7.columns]
-df7.columns  = [i.upper() for i in df7.columns]
-df7.dropna(axis=0, inplace=True)
+######################## df8 #############################################################
+df8 = pd.read_excel(File,'Team_Management')
+df8.columns  = [i.replace(' ','_') for i in df8.columns]
+df8.columns  = [i.upper() for i in df8.columns]
+df8.dropna(axis=0, inplace=True)
 
-df7["RIG_NO."]  = [i.replace(' ','') for i in df7["RIG_NO."]]
-df7["JOB_TYPE"]  = [i.upper() for i in df7["JOB_TYPE"]]
-df7["EXPECTED_DATE"]= pd.to_datetime(df7["EXPECTED_DATE"])
-df7['EXPECTED_DATE']=df7['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
+df8["RIG_NO."]  = [i.replace(' ','') for i in df8["RIG_NO."]]
+df8["JOB_TYPE"]  = [i.upper() for i in df8["JOB_TYPE"]]
+df8["EXPECTED_DATE"]= pd.to_datetime(df8["EXPECTED_DATE"])
+df8['EXPECTED_DATE']=df8['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
 
-df7['RIG_ORDER']=df7['RIG_ORDER'].astype('str')
+df8['RIG_ORDER']=df8['RIG_ORDER'].astype('str')
 
-df7['RIG_ORDER']="Rig_"+df7['RIG_ORDER']
-Audit = df7[df7['AUDIT/DROPS']=="Audit"]
-Drops = df7[df7['AUDIT/DROPS']=="Drops"]
+df8['RIG_ORDER']="Rig_"+df8['RIG_ORDER']
+Audit = df8[df8['AUDIT/DROPS']=="Audit"]
+Drops = df8[df8['AUDIT/DROPS']=="Drops"]
 
 
 
 st.image(image)
 
 
-st.markdown(" <center>  <h1> Audit Team Tracking </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Audit Team Timeline </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 RB1_list=list(Audit['TEAM_NO.'].unique())
-RB1=st.radio("What is Audit Team's Plan ",RB1_list)
+RB1=st.radio("Then/Now/Next Follow Up ",RB1_list)
 
 
 for i in range (0,len(RB1_list)):
@@ -45,10 +45,10 @@ for i in range (0,len(RB1_list)):
                         Audit_Team.drop(['TEAM_NO.','AUDIT/DROPS','index'], axis=1, inplace=True)
                         st.dataframe(Audit_Team,use_container_width=True) 
 
-st.markdown(" <center>  <h1> Drops Team Tracking </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Drops Team Timeline </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 RB2_list=list(Drops['TEAM_NO.'].unique())
-RB2=st.radio("What is Drops Team's Plan ",RB2_list)
+RB2=st.radio("Then/Now/Next Follow Up ",RB2_list)
 
 
 for i in range (0,len(RB2_list)):
