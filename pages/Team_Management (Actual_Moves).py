@@ -30,6 +30,8 @@ Drops = df8[df8['AUDIT/DROPS']=="Drops"]
 
 
 st.image(image)
+st.markdown(" <center>  <h1> Updated Actual Surveyed Rigs </h1> </font> </center> </h1> ",
+            unsafe_allow_html=True)
 
 
 st.markdown(" <center>  <h1> Audit Team Timeline </h1> </font> </center> </h1> ",
