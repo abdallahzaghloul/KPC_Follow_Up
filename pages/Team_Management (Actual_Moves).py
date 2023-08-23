@@ -37,7 +37,7 @@ st.markdown(" <center>  <h1> Audit Team Timeline </h1> </font> </center> </h1> "
 RB1_list=list(Audit['TEAM_NO.'].unique())
 RB1=st.radio("Audit Teams ",RB1_list)
 
-Phases_Slider = st.select_slider('Then >> Now >> Next Rigs', options=["Previous","Now", "Next"])
+Phases_Slider = st.select_slider('(Then >> Now >> Next) Audit Team Rigs', options=["Previous","Now", "Next"])
 
 for i in range (0,len(RB1_list)):
             if RB1 == RB1_list[i]:
@@ -50,13 +50,14 @@ st.markdown(" <center>  <h1> Drops Team Timeline </h1> </font> </center> </h1> "
             unsafe_allow_html=True)
 RB2_list=list(Drops['TEAM_NO.'].unique())
 RB2=st.radio("Drops Teams",RB2_list)
+Phases_Sliderr = st.select_slider('(Then >> Now >> Next) Drops Team Rigs ', options=["Previous","Now", "Next"])
 
 
 for i in range (0,len(RB2_list)):
             if RB2 == RB2_list[i]:
-                        Drops_Team =  Drops[Drops['TEAM_NO.']==RB2]
+                        Drops_Team =  Drops[(Drops['TEAM_NO.']==RB2)&(Drops['RIG_ORDER']==Phases_Sliderr) ]
                         Drops_Team.reset_index(inplace=True)
-                        Drops_Team.drop(['TEAM_NO.','AUDIT/DROPS','index'], axis=1, inplace=True)
+                        Drops_Team.drop(["TEAM_NO.","AUDIT/DROPS","index","RIG_ORDER"], axis=1, inplace=True)
                         st.dataframe(Drops_Team,use_container_width=True) 
 
   
