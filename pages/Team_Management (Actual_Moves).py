@@ -20,10 +20,10 @@ df8["RIG_NO."]  = [i.replace(' ','') for i in df8["RIG_NO."]]
 df8["JOB_TYPE"]  = [i.upper() for i in df8["JOB_TYPE"]]
 df8["EXPECTED_DATE"]= pd.to_datetime(df8["EXPECTED_DATE"])
 df8['EXPECTED_DATE']=df8['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
+df8["RIG_ORDER"]=df8["RIG_ORDER"].astype("int") 
+dict= {-1:"Previous",0:"Now",1:"Next"}
+df8["RIG_ORDER"]=df8["RIG_ORDER"].map(dict)
 
-df8['RIG_ORDER']=df8['RIG_ORDER'].astype('str')
-
-df8['RIG_ORDER']="Rig_"+df8['RIG_ORDER']
 Audit = df8[df8['AUDIT/DROPS']=="Audit"]
 Drops = df8[df8['AUDIT/DROPS']=="Drops"]
 
@@ -37,12 +37,13 @@ st.markdown(" <center>  <h1> Audit Team Timeline </h1> </font> </center> </h1> "
 RB1_list=list(Audit['TEAM_NO.'].unique())
 RB1=st.radio("Audit Teams ",RB1_list)
 
+Phases_Slider = st.select_slider('Then >> Now >> Next Rigs', options=["Previous","Now", "Next"])
 
 for i in range (0,len(RB1_list)):
             if RB1 == RB1_list[i]:
-                        Audit_Team =  Audit[Audit['TEAM_NO.']==RB1]
+                        Audit_Team =  Audit[(Audit['TEAM_NO.']==RB1) & (Audit['RIG_ORDER']==Phases_Slider)]
                         Audit_Team.reset_index(inplace=True)
-                        Audit_Team.drop(['TEAM_NO.','AUDIT/DROPS','index'], axis=1, inplace=True)
+                        Audit_Team.drop(['TEAM_NO.','AUDIT/DROPS','index',"RIG_ORDER"], axis=1, inplace=True)
                         st.dataframe(Audit_Team,use_container_width=True) 
 
 st.markdown(" <center>  <h1> Drops Team Timeline </h1> </font> </center> </h1> ",
