@@ -18,8 +18,8 @@ df8.dropna(axis=0, inplace=True)
 
 df8["RIG_NO."]  = [i.replace(' ','') for i in df8["RIG_NO."]]
 df8["JOB_TYPE"]  = [i.upper() for i in df8["JOB_TYPE"]]
-df8["EXPECTED_DATE"]= pd.to_datetime(df8["EXPECTED_DATE"])
-df8['EXPECTED_DATE']=df8['EXPECTED_DATE'].dt.strftime('%d-%m-%Y')
+df8["ACTUAL_DATE"]= pd.to_datetime(df8["ACTUAL_DATE"])
+df8['ACTUAL_DATE']=df8['ACTUAL_DATE'].dt.strftime('%d-%m-%Y')
 df8["RIG_ORDER"]=df8["RIG_ORDER"].astype("int") 
 dict= {-1:"Previous",0:"Now",1:"Next"}
 df8["RIG_ORDER"]=df8["RIG_ORDER"].map(dict)
