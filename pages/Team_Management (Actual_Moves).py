@@ -35,7 +35,7 @@ st.image(image)
 st.markdown(" <center>  <h1> Audit Team Timeline </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 RB1_list=list(Audit['TEAM_NO.'].unique())
-RB1=st.radio("Then/Now/Next Follow Up ",RB1_list)
+RB1=st.radio("Audit Teams ",RB1_list)
 
 
 for i in range (0,len(RB1_list)):
@@ -48,7 +48,7 @@ for i in range (0,len(RB1_list)):
 st.markdown(" <center>  <h1> Drops Team Timeline </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 RB2_list=list(Drops['TEAM_NO.'].unique())
-RB2=st.radio("Then/Now/Next Follow Up ",RB2_list)
+RB2=st.radio("Drops Teams",RB2_list)
 
 
 for i in range (0,len(RB2_list)):
