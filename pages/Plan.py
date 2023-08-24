@@ -30,7 +30,7 @@ Drops = df7[df7['AUDIT/DROPS']=="Drops"]
 
 
 st.image(image)
-st.markdown(" <center>  <h1> Updated Plan (Monthly) </h1> </font> </center> </h1> ",
+st.markdown(" <center>  <h1> Monthly Plan </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
 st.markdown(" <center>  <h1> Audit Team Tracking </h1> </font> </center> </h1> ",
