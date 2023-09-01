@@ -21,6 +21,13 @@ df8["RIG_TYPE"]  = [i.upper() for i in df8["RIG_TYPE"]]
 df8["RIG_NO."]  =df8["RIG_NO."] .str.strip()
 df8["RIG_TYPE"]  =df8["RIG_TYPE"] .str.strip()
 df8.dropna(axis=0,inplace=True)
+df8['NO.'] = df8["RIG_NO."].str.split("-").str[-1]
+df8['NO.']= df8['NO.'].astype("int")
+df8.sort_values(by='NO.', ascending=True)
+df8.drop('NO.', inplace=True, axis=1)
+
+
+
 
 
 st.image(image)
