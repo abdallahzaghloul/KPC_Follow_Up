@@ -24,7 +24,6 @@ df8.dropna(axis=0,inplace=True)
 df8['NO.'] = df8["RIG_NO."].str.split("-").str[-1]
 df8['NO.']= df8['NO.'].astype("int")
 df8.sort_values(by='NO.', ascending=True)
-df8.drop('NO.', inplace=True, axis=1)
 
 
 
@@ -42,6 +41,11 @@ st.markdown(" <center>  <h1> Rigs with Mast Problems </h1> </font> </center> </h
 DRLG_MAST = df8[df8["RIG_TYPE"]=="DRLG"]
 WO_MAST = df8[df8["RIG_TYPE"]=="WO"]
 PU_MAST = df8[df8["RIG_TYPE"]=="PU"]
+
+DRLG_MAST.drop("NO.", axis=1,inplace=True)
+WO_MAST.drop("NO.", axis=1,inplace=True)
+PU_MAST.drop("NO.", axis=1,inplace=True)
+
 
 DRLG_MAST.set_index("RIG_NO.", inplace=True)
 WO_MAST.set_index("RIG_NO.", inplace=True)
