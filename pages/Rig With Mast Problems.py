@@ -20,7 +20,6 @@ df8["RIG_NO."]  = [i.upper() for i in df8["RIG_NO."]]
 df8["RIG_TYPE"]  = [i.upper() for i in df8["RIG_TYPE"]]
 df8["RIG_NO."]  =df8["RIG_NO."] .str.strip()
 df8["RIG_TYPE"]  =df8["RIG_TYPE"] .str.strip()
-df8.set_index("RIG_NO.", inplace=True)
 df8.dropna(axis=0,inplace=True)
 
 
