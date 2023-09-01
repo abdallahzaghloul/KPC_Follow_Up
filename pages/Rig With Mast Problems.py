@@ -13,7 +13,7 @@ image = np.array(im)
 
 
 ######################## df1 #############################################################
-df8 = pd.read_excel(url,'Rig_Mast_Problems_Drops')
+df8 = pd.read_excel(File,'Rig_Mast_Problems_Drops')
 df8.columns  = [i.replace(' ','_') for i in df8.columns]
 df8.columns  = [i.upper() for i in df8.columns]
 df8["RIG_NO."]  = [i.upper() for i in df8["RIG_NO."]]
