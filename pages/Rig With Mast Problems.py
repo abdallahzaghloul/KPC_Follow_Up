@@ -37,7 +37,20 @@ DRLG_MAST = df8[df8["RIG_TYPE"]=="DRLG"]
 WO_MAST = df8[df8["RIG_TYPE"]=="WO"]
 PU_MAST = df8[df8["RIG_TYPE"]=="PU"]
 
-st.dataframe(df8)
+st.markdown(" <right>  <h1> (I) DRLG Rigs</h1> </font> </right> </h1> ",
+            unsafe_allow_html=True)
+
+st.dataframe(DRLG_MAST)
+
+st.markdown(" <right>  <h1> (I) WO Rigs</h1> </font> </right> </h1> ",
+            unsafe_allow_html=True)
+
+st.dataframe(WO_MAST)
+
+st.markdown(" <right>  <h1> (I) PU Rigs</h1> </font> </right> </h1> ",
+            unsafe_allow_html=True)
+
+st.dataframe(PU_MAST)
 
 
 
