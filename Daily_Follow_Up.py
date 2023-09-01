@@ -59,17 +59,24 @@ df2['RIG_NO.']  = [i.replace(' ','') for i in df2['RIG_NO.']]
 df2['RIG_NO.']  = [i.upper() for i in df2['RIG_NO.']]
 
 
-df2['LAST_VISIT']=df2['LAST_VISIT'].astype(str)
-df2['LAST_VISIT']=df2['LAST_VISIT'].str.split(' ').str[0]
-df2["LAST_VISIT"]= pd.to_datetime(df2["LAST_VISIT"])
+df2['RIG_LAST_VISIT']=df2['RIG_LAST_VISIT'].astype(str)
+df2['RIG_LAST_VISIT']=df2['RIG_LAST_VISIT'].str.split(' ').str[0]
+df2["RIG_LAST_VISIT"]= pd.to_datetime(df2["RIG_LAST_VISIT"])
 df2=df2.set_index('TEAM_NO.')
 df2['TODAY_DATE']=datetime.date.today()
 df2["TODAY_DATE"]= pd.to_datetime(df2["TODAY_DATE"])
-df2['DAYS_COUNT'] = df2.TODAY_DATE-df2.LAST_VISIT
-df2['LAST_VISIT']=df2['LAST_VISIT'].dt.strftime('%d-%m-%Y')
-df2['DAYS_COUNT']=df2['DAYS_COUNT'].astype('str')
-df2['DAYS_COUNT']=df2['DAYS_COUNT'].str.split(' ').str[0:2].str.join(' ')
-df2.drop(['WELL_NAME','TODAY_DATE','FIELD'],axis=1, inplace=True)
+df2['DAYS_COUNT (Since LAst Visit)'] = df2.TODAY_DATE-df2.RIG_LAST_VISIT
+df2['RIG_LAST_VISIT']=df2['RIG_LAST_VISIT'].dt.strftime('%d-%m-%Y')
+df2['DAYS_COUNT (Since LAst Visit)']=df2['DAYS_COUNT (Since LAst Visit)'].astype('str')
+df2['DAYS_COUNT (Since LAst Visit)']=df2['DAYS_COUNT (Since LAst Visit)'].str.split(' ').str[0:2].str.join(' ')
+df2['SPENT_DAYS']=df2.TODAY_DATE-df2.STARTING_DATE
+
+df2['SPENT_DAYS']=df2['SPENT_DAYS'].astype("str")
+df2['SPENT_DAYS']=df2['SPENT_DAYS'].str.split(" ").str[0]
+df2['SPENT_DAYS']=df2['SPENT_DAYS'].astype(int)+1
+df2['SPENT_DAYS']=df2['SPENT_DAYS'].astype(str)+"/"+df2['JOB_DAYS'].astype(str)
+
+df2.drop(['JOB_DAYS','TODAY_DATE','STARTING_DATE'],axis=1, inplace=True)
 ######################## df3 #############################################################
 df3 = pd.read_excel(File,'All_Critical_Points')
 df3.columns  = [i.replace(' ','_') for i in df3.columns]
