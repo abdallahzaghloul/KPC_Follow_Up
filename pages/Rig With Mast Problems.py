@@ -33,13 +33,9 @@ st.image(image)
 st.markdown(" <center>  <h1> Rigs with Mast Problems </h1> </font> </center> </h1> ",
             unsafe_allow_html=True)
 
-
-
-
-  
-
-
-
+DRLG_MAST = df8[df8["RIG_TYPE"]=="DRLG"]
+WO_MAST = df8[df8["RIG_TYPE"]=="WO"]
+PU_MAST = df8[df8["RIG_TYPE"]=="PU"]
 
 st.dataframe(df8)
 
